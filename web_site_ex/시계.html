@@ -1,0 +1,19 @@
+<html>
+	<head>
+    <meta charset="UTF-8">
+	<title>시계</title>
+	<script>
+	    
+	function clock(){
+	var time = new Date;
+    var h = time.getHours();
+	var m = time.getMinutes();
+	var s = time.getSeconds();
+	document.getElementById("1").innerHTML = h + " : "+ m + " : "+ s;
+	setTimeout(clock, 500);
+	}
+	</script>
+	</head>
+	<body onload="clock()" id = "1">
+	</body>
+</html>
