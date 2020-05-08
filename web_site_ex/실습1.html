@@ -1,0 +1,19 @@
+<html>
+	<head>
+	
+	</head>
+	<body onload="start()">
+    <div id="1"></div>
+	</body>
+	<script>
+	var a = 2;
+	var b = 1;
+	function start(){
+	document.getElementById("1").innerHTML += (a + " ");
+	a += 2;
+	document.getElementById("1").innerHTML += (b + " ");
+	b += 2;
+	setTimeout(start, 500);
+	}
+	</script>
+</html>
