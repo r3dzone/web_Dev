@@ -6,11 +6,10 @@ $cnt = $_POST['cnt'];
 $correctpswd;
 
 $dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysqli_connect($dbHost,$dbId,$dbPw);
-$a = mysqli_select_db($dbName,$conn);
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
 mysqli_query("set session character_set_connection=utf8;");
 
@@ -18,7 +17,7 @@ mysqli_query("set session character_set_results=utf8;");
 
 mysqli_query("set session character_set_client=utf8;");
 	
-	$res = mysqli_query('select id,password,nickname from user_info');
+	$res = mysqli_query($conn,'select id,password,nickname from user_info');
 	while($row=mysqli_fetch_array($res)){
 	if($row['id'] == $id){
 		$correctpswd = $row['password'];
