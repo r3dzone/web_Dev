@@ -17,22 +17,18 @@ mysqli_query("set session character_set_results=utf8;");
 
 mysqli_query("set session character_set_client=utf8;");
 	
-	$res = mysqli_query($conn,'select id,password,nickname from user_info');
+	$res = mysqli_query($conn,'select id,password,nickname from user_info where '.$id);
 	while($row=mysqli_fetch_array($res)){
-	if($row['id'] == $id){
 		$correctpswd = $row['password'];
 		$nick = $row['nickname'];
 		break;
-	}
 	}
 	
 	mysqli_close($conn);
 
 if($cnt!=0 && empty($correctpswd)){
 	echo "존재하지 않는 id입니다.";
-}
-
-if(!($id == '')&&$cnt!=0 && $pswd == $correctpswd){
+}else if(!($id == '')&&$cnt!=0 && $pswd == $correctpswd){
 	echo "logined!";
 	$_SESSION['id'] = $id;
 	$_SESSION['nick'] = $nick;
