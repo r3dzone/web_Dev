@@ -9,17 +9,17 @@ $dbHost = 'localhost';
 $dbId = 'unknown';
 $dbPw = 'redzone';
 $dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$conn = mysqli_connect($dbHost,$dbId,$dbPw);
+$a = mysqli_select_db($dbName,$conn);
 
-mysql_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysqli_query("set session character_set_client=utf8;");
 	
-	$res = mysql_query('select id,password,nickname from user_info');
-	while($row=mysql_fetch_array($res)){
+	$res = mysqli_query('select id,password,nickname from user_info');
+	while($row=mysqli_fetch_array($res)){
 	if($row['id'] == $id){
 		$correctpswd = $row['password'];
 		$nick = $row['nickname'];
@@ -27,7 +27,7 @@ mysql_query("set session character_set_client=utf8;");
 	}
 	}
 	
-	mysql_close($conn);
+	mysqli_close($conn);
 
 if($cnt!=0 && empty($correctpswd)){
 	echo "존재하지 않는 id입니다.";
