@@ -27,5 +27,5 @@ if($_POST['submit']=='좋아요'){
 
 mysql_close($conn);
 
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/read.php?kn='.$kn.'"</script>';
+echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
 	?>

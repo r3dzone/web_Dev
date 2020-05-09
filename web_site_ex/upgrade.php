@@ -191,7 +191,7 @@ if($tmp == 1)
 	$upgradecash += 300;
 	if($nowcash < 0){
 		echo "<script>alert('you are lose')</script>";
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/upgrade.php"</script>';	
+echo '<script>location.href="/~unknown/upgrade.php"</script>';	
 	}
 
 	
@@ -202,7 +202,7 @@ echo '<script>location.href="http://junior.catsecurity.net/~unknown/upgrade.php"
 	$nowcash -= $upgradecash;
 	if($nowcash < 0){
 		echo "<script>alert('you are lose')</script>";
-    echo '<script>location.href="http://junior.catsecurity.net/~unknown/upgrade.php"</script>';	
+    echo '<script>location.href="/~unknown/upgrade.php"</script>';	
 	}
 	}
 }

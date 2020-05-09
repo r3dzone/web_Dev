@@ -11,7 +11,7 @@ $err = 0;
 
 if($_POST["reply"]==""){
 echo "<script>alert('empty!!')</script>";
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/read.php?kn='.$kn.'"</script>';
+echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
 $err = 3;
 }
 
@@ -40,6 +40,6 @@ $result = mysql_query($query, $conn);
 }
 mysql_close($conn);
 
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/read.php?kn='.$kn.'"</script>';
+echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
 
 	?>

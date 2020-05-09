@@ -99,7 +99,7 @@ mysql_query("set session character_set_client=utf8;");
 		echo "</td>";
 		
 		echo "<td width='20%'>";
-		echo "<a href = 'http://junior.catsecurity.net/~unknown/walldownload.php?filename=".$row['download']."'>".$row['download']."</a>";
+		echo "<a href = 'http:///~unknown/walldownload.php?filename=".$row['download']."'>".$row['download']."</a>";
 		echo "</td>";
 		
 	echo "</tr>";

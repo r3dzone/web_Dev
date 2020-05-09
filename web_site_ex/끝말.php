@@ -27,7 +27,7 @@
 			else
 			{
 	    			echo "<script>alert('틀렸습니다. 돌아갑니다')</script>";
-                              	echo '<script>location.href="http://junior.catsecurity.net/~unknown/끝말.php"</script>';			
+                              	echo '<script>location.href="http:///~unknown/끝말.php"</script>';			
 	  		}
 		}
 	}

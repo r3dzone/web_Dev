@@ -57,12 +57,12 @@ $count ++;
 if($count > 9){
 	echo 
 	"<script>alert('게임 종료... 아쉽네요')</script>";
-    echo '<script>location.href="http://junior.catsecurity.net/~unknown/sutja.php"</script>';			
+    echo '<script>location.href="s/~unknown/sutja.php"</script>';		
 }
 if($st == 3){
 	echo 
 	"<script>alert('게임 클리어! 대단하시네요!')</script>";
-    echo '<script>location.href="http://junior.catsecurity.net/~unknown/sutja.php"</script>';			
+    echo '<script>location.href="/~unknown/sutja.php"</script>';			
 }
 echo $count."회차".$ba."볼".$st."스트라이크";
 if($ba==0&&$st==0){

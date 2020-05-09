@@ -40,7 +40,7 @@ $cnt++;
 if($cnt > 10)
 {
 	echo "<script>alert('10회 이내 실패')</script>";
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/updown.php"</script>';	
+echo '<script>location.href="http:///~unknown/updown.php"</script>';	
 }
 ?>
 

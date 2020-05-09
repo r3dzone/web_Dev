@@ -23,11 +23,11 @@ mysql_query("set session character_set_client=utf8;");
 	while($row=mysql_fetch_array($res)){
 	if($row['secret'] == 1 && $row['writer'] != $_SESSION['nick'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
-		echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/read.php?kn='.$kn.'"</script>';
+		echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
 	}
 	if($row['writer'] != $_SESSION['nick'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
-		echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/read.php?kn='.$kn.'"</script>';
+		echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
 	}
 	$reply = $row['reply'];
 	}

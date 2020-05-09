@@ -11,11 +11,11 @@ $_SESSION['num'] = $numall;
 if($cnt != 0 &&$_SESSION['num'] == $_POST['code'])
 {
 	$_SESSION['name'] = $_POST['name'];
-	echo '<script>location.href="http://junior.catsecurity.net/~unknown/check2.php"</script>';
+	echo '<script>location.href="http:///~unknown/check2.php"</script>';
 }
 if($cnt != 0 && $_SESSION['num'] != $_POST['code'])
 {
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/check1.php"</script>';
+echo '<script>location.href="http:///~unknown/check1.php"</script>';
 }
 echo "인증번호: ".$numall."</br>";
 $cnt++;
@@ -30,7 +30,7 @@ $cnt++;
 	if(time < 0)
 	document.getElementById("1").innerHTML = "시간만료";
 	if(time < -1)
-	location.href="http://junior.catsecurity.net/~unknown/check1.php"
+	location.href="http:///~unknown/check1.php"
 	time -= 1;
 	setTimeout(clock, 1000);
 	}

@@ -78,7 +78,7 @@ if(!$res1&&!$res2){
 $query = "insert into pinfo(id,password,birthdate,nickname) values('".$id."','".$pswd."','".$birth."','".$nick."')";
 $result = mysql_query($query, $conn);
 	echo "<script>alert('회원가입 성공!!')</script>";
-	echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
 }else{
 	if($res1)echo "<script>alert('이미 존재하는 id 입니다!!')</script>";
 	if($res2)echo "<script>alert('이미 존재하는 닉네임 입니다!!')</script>";

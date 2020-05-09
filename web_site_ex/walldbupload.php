@@ -38,5 +38,5 @@ if($_POST['submit'] == "submit"){
 	
 }
 mysql_close($conn);
-	echo '<script>location.href="http://junior.catsecurity.net/~unknown/wall.php"</script>';
+	echo '<script>location.href="http:///~unknown/wall.php"</script>';
 	?>

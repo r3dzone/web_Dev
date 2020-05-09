@@ -15,12 +15,12 @@ $_SESSION['upgradecash'] = $_POST['upgradecash'];
 $_SESSION['sellcash'] = $_POST['sellcash'];
 $_SESSION['okper'] = $_POST['okper'];
 
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/upgrade.php"</script>';
+echo '<script>location.href="http:///~unknown/upgrade.php"</script>';
 }
 if($sa==2){
 $_SESSION['continue'] = 2;
 $_SESSION['num'] = $_SESSION['save'];
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/upgrade.php"</script>';
+echo '<script>location.href="http:///~unknown/upgrade.php"</script>';
 }
 $sa = 0;
 

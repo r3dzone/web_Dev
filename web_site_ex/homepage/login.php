@@ -37,7 +37,7 @@ if(!($id == '')&&$cnt!=0 && $pswd == $correctpswd){
 	echo "logined!";
 	$_SESSION['id'] = $id;
 	$_SESSION['nick'] = $nick;
-	echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
 }else if($cnt != 0){
 	echo "wrong Password</br>";
 }

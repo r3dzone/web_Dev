@@ -19,7 +19,7 @@ $query = "delete from pinfo where id='".$id."'";
 $result = mysql_query($query, $conn);
 unset($_SESSION['id']);
 	echo "<script>alert('success for delete your data')</script>";
-	echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
 ?>
 
 			 

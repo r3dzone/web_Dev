@@ -45,5 +45,5 @@ if(isset($file)){
 	
 }
 mysql_close($conn);
-	echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/freeboard.php"</script>';
+	echo '<script>location.href="http:///~unknown/homepage/freeboard.php"</script>';
 	?>

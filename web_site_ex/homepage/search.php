@@ -8,7 +8,7 @@ if(empty($pg))$pg =0;
 
 if(empty($id)){
 echo "<script>alert('권한이 없습니다.')</script>";
-	echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
 }
 ?>
 <html>
@@ -102,12 +102,12 @@ echo "<script>alert('권한이 없습니다.')</script>";
 		 </style>
 	</head>
 	<body>
-	  <h1 font-family="ITCBLKAD"><a href="http://junior.catsecurity.net/~unknown/homepage/main.php">TACK'S BOARD</a>
+	  <h1 font-family="ITCBLKAD"><a href="http:///~unknown/homepage/main.php">TACK'S BOARD</a>
 <nav id="menubar" >
 		<ul>
-			<li><a class="sel" href="http://junior.catsecurity.net/~unknown/homepage/freeboard.php">FreeBoard</a></li>
+			<li><a class="sel" href="http:///~unknown/homepage/freeboard.php">FreeBoard</a></li>
 			<li>|</li>
-			<li><a class="sel" href="http://junior.catsecurity.net/~unknown/homepage/mypage.php">MyPage</a></li>
+			<li><a class="sel" href="http:///~unknown/homepage/mypage.php">MyPage</a></li>
 			<li>|</li>
 			<li><a class="sel" href="">Secret</a></li>
 			<li>|</li>
@@ -120,13 +120,13 @@ echo "<script>alert('권한이 없습니다.')</script>";
 <?php
  session_start();
 if(isset($_SESSION['id'])){
-echo '<li><a href="http://junior.catsecurity.net/~unknown/homepage/logout.php">로그아웃</a></li>';
-echo '<li><a href="http://junior.catsecurity.net/~unknown/homepage/write.php">글 쓰기</a></li>';
+echo '<li><a href="http:///~unknown/homepage/logout.php">로그아웃</a></li>';
+echo '<li><a href="http:///~unknown/homepage/write.php">글 쓰기</a></li>';
 }
 else {
-echo '<li><a href="http://junior.catsecurity.net/~unknown/homepage/login.php">로그인</a></li>';
-echo ' <li><a href="http://junior.catsecurity.net/~unknown/homepage/signup.php">회원가입</a></li>';
-echo '<li><a href="http://junior.catsecurity.net/~unknown/homepage/findpswd.php">비번찾기</a></li>';
+echo '<li><a href="http:///~unknown/homepage/login.php">로그인</a></li>';
+echo ' <li><a href="http:///~unknown/homepage/signup.php">회원가입</a></li>';
+echo '<li><a href="http:///~unknown/homepage/findpswd.php">비번찾기</a></li>';
 }
 	?>
 </ul>
@@ -185,7 +185,7 @@ mysql_query("set session character_set_client=utf8;");
 		echo "</td>";
 		
 		echo "<td width='50%'>";
-		echo "<a href = 'http://junior.catsecurity.net/~unknown/homepage/read.php?kn=".$row['kn']."'>".$row['contentname'];
+		echo "<a href = 'http:///~unknown/homepage/read.php?kn=".$row['kn']."'>".$row['contentname'];
 		if($row['secret']){
 		echo "[비밀글]</a>";
 		}else{

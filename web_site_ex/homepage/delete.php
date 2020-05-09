@@ -25,7 +25,7 @@ $query = "delete from reply where contentn ='".$kn."'";
 $result = mysql_query($query, $conn);
 
 mysql_close($conn);
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/freeboard.php"</script>';
+echo '<script>location.href="http:///~unknown/homepage/freeboard.php"</script>';
 }else{
 
 echo "<script>alert('reply deleted!!')</script>";	
@@ -34,7 +34,7 @@ $query = "delete from reply where replyn ='".$replyn."'";
 $result = mysql_query($query, $conn);
 
 mysql_close($conn);
-echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/read.php?kn='.$kn.'"</script>';
+echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
 }	
 	
 	?>

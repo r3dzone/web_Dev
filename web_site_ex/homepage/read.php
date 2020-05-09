@@ -57,7 +57,7 @@ mysql_query("set session character_set_client=utf8;");
 	while($row=mysql_fetch_array($res)){
 	if($row['secret'] == 1 && $row['nickname'] != $_SESSION['nick'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
-		echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/freeboard.php"</script>';
+		echo '<script>location.href="http:///~unknown/homepage/freeboard.php"</script>';
 	}else{	
 	$res1 = mysql_query('select count(*) as total from contentinfo where visitor="'.$nick.'" AND kn="'.$kn.'";');
 	$row1=mysql_fetch_assoc($res1);
@@ -114,7 +114,7 @@ mysql_query("set session character_set_client=utf8;");
 	
 	echo "<tr>";
 		echo "<td colspan='4' width='100%'>";
-		echo "<a href = 'http://junior.catsecurity.net/~unknown/homepage/freeboarddownload.php?filename=".$row['download']."'>".$row['download']."</a>";
+		echo "<a href = 'http:///~unknown/homepage/freeboarddownload.php?filename=".$row['download']."'>".$row['download']."</a>";
 		echo "</td>";
 		
 	echo "</tr>";

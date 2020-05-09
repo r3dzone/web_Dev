@@ -24,7 +24,7 @@ mysql_query("set session character_set_client=utf8;");
 
 if(empty($id)){
 echo "<script>alert('권한이 없습니다.')</script>";
-	echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
 }
 
 if($cnt!=0){
@@ -73,10 +73,10 @@ if($cnt!=0&&$err == 0){
 
 }else if($nick!=$nicks){
  echo "<script>alert('이미 있는 닉네임입니다!!')</script>";
- echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/mypage.php"</script>';
+ echo '<script>location.href="http:///~unknown/homepage/mypage.php"</script>';
 }
 echo "<script>alert('정보수정 성공!!')</script>";
-	echo '<script>location.href="http://junior.catsecurity.net/~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
 }
 
 	$res = mysql_query('select password,birthdate,nickname from pinfo where id="'.$id.'"');
