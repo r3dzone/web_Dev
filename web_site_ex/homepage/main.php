@@ -1,7 +1,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>Utack's hompage</title>
+		<title>정신과 시간의 방</title>
 		<style>
 		a{
 			color:black;
@@ -37,7 +37,7 @@
 		}
 
 		body{
-		background-image:url('d.png');
+		background-image:url('back_ground.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		}
@@ -78,12 +78,12 @@
 		 </style>
 	</head>
 	<body>
-	   <h1 font-family="ITCBLKAD"><a href="http:///~unknown/homepage/main.php">TACK'S BOARD</a>
+	   <h1 font-family="ITCBLKAD"><a href="http://hypertime.tk/main.php">정신과 시간의 방</a>
 <nav id="menubar" >
 		<ul>
-			<li><a class="sel" href="http:///~unknown/homepage/freeboard.php">FreeBoard</a></li>
+			<li><a class="sel" href="http://hypertime.tk/freeboard.php">FreeBoard</a></li>
 			<li>|</li>
-			<li><a class="sel" href="http:///~unknown/homepage/mypage.php">MyPage</a></li>
+			<li><a class="sel" href="http://hypertime.tk/mypage.php">MyPage</a></li>
 			<li>|</li>
 			<li><a class="sel" href="">Secret</a></li>
 			<li>|</li>
@@ -96,15 +96,15 @@
 <?php
  session_start();
 if(isset($_SESSION['id'])){
-echo '<li><a href="http:///~unknown/homepage/logout.php">로그아웃</a></li>';
-echo '<li><a href="http:///~unknown/homepage/mypage.php">마이페이지</a></li>';
+echo '<li><a href="http://hypertime.tk/logout.php">로그아웃</a></li>';
+echo '<li><a href="http://hypertime.tk/mypage.php">마이페이지</a></li>';
 }
 else {
-echo '<li><a href="http:///~unknown/homepage/login.php">로그인</a></li>';
-echo ' <li><a href="http:///~unknown/homepage/signup.php">회원가입</a></li>';
-echo '<li><a href="http:///~unknown/homepage/findpswd.php">비번찾기</a></li>';
+echo '<li><a href="http://hypertime.tk/login.php">로그인</a></li>';
+echo '<li><a href="http://hyprtimr.tk/signup.php">회원가입</a></li>';
+echo '<li><a href="http://hypertime.tk/findpswd.php">비번찾기</a></li>';
 }
-	?>
+?>
 </ul>
 </br>
 <p>
