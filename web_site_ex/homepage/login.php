@@ -18,7 +18,7 @@ mysql_query("set session character_set_results=utf8;");
 
 mysql_query("set session character_set_client=utf8;");
 	
-	$res = mysql_query('select id,password,nickname from pinfo');
+	$res = mysql_query('select id,password,nickname from user_info');
 	while($row=mysql_fetch_array($res)){
 	if($row['id'] == $id){
 		$correctpswd = $row['password'];
@@ -37,7 +37,7 @@ if(!($id == '')&&$cnt!=0 && $pswd == $correctpswd){
 	echo "logined!";
 	$_SESSION['id'] = $id;
 	$_SESSION['nick'] = $nick;
-	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="http://hypertime.tk/main.php"</script>';
 }else if($cnt != 0){
 	echo "wrong Password</br>";
 }
@@ -62,7 +62,7 @@ $cnt ++;
 		color:skyblue;
 		}
 		body{
-		background-image:url('d.png');
+		background-image:url('back_ground.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		
