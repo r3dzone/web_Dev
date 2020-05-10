@@ -17,7 +17,7 @@ mysqli_query("set session character_set_results=utf8;");
 
 mysqli_query("set session character_set_client=utf8;");
 	
-	$res = mysqli_query($conn,'select id,password,nickname from user_info where '.$id);
+	$res = mysqli_query($conn,'select id,password,nickname from user_info where id = '.$id);
 	while($row=mysqli_fetch_array($res)){
 		$correctpswd = $row['password'];
 		$nick = $row['nickname'];
