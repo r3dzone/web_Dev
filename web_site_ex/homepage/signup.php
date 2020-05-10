@@ -10,44 +10,38 @@ $birth = $_POST['생년'].$_POST['월'].$_POST['일'];
 $err = 0;
 
 $dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
-mysql_query("set session character_set_connection=utf8;");
+mysql_query($conn,"set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysql_query($conn,"set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysql_query($conn,"set session character_set_client=utf8;");
 	
 
 if($cnt!=0){
-if(ereg("^[[:alnum:]]{6,20}$",$id)){
+if(preg_match("/^[[:alnum:]]{8,30}$/",$id)){
 	}else{
-		echo "<script>alert('id가 6~20자 사이의 문자나 숫자의 조합이 아닙니다. ')</script>";
-		$err++;
-	}
-if(ereg("^[[:alnum:]]{6,20}$",$pswd)){
-	}else{
-		echo "<script>alert('비밀번호가 6~20자 사이의 문자나 숫자의 조합이 아닙니다. ')</script>";
+		echo "<script>alert('id가 8~30자 사이의 문자나 숫자의 조합이 아닙니다. ')</script>";
 		$err++;
 	}
 	
-if(ereg("^[[:alnum:]]{6,20}$",$pswd)){
+if(preg_match("/^[[:alnum:]]{8,30}$/",$pswd)){
 	}else{
-		echo "<script>alert('비밀번호가 6~20자 사이의 영문자나 숫자의 조합이 아닙니다. ')</script>";
+		echo "<script>alert('비밀번호가 8~30자 사이의 영문자나 숫자의 조합이 아닙니다. ')</script>";
 		$err++;
 	}
 	
-if(ereg("^[[:alnum:]]{3,20}$",$nick)){
+if(preg_match("/^[[:alnum:]]{3,20}$/",$nick)){
 	}else{
 		echo "<script>alert('닉네임이 3~20자 사이의 영문자나 숫자의 조합이 아닙니다. ')</script>";
 		$err++;
 	}
 
-if(ereg("^[[:digit:]]{4,4}$",$by)){
+if(preg_match("/^[[:digit:]]{4,4}$/",$by)){
 	}else{
 		echo "<script>alert('생년이 4자리로 되어있지 않습니다. ')</script>";
 		$err++;
@@ -66,24 +60,23 @@ if($bm!='00'){
 }
 if($cnt!=0&&$err == 0){
 	
-		$res = mysql_query('select count(*) as total from pinfo where id="'.$id.'";');
-	$row=mysql_fetch_assoc($res);
-    $res1 = $row['total'];
+		$res = mysqli_query($conn,'select count(*) as total from user_info where id="'.$id.'";');
+		$row = mysqli_fetch_assoc($res);
+    	$res1 = $row['total'];
 		
-		$res = mysql_query('select count(*) as total from pinfo where nickname="'.$nick.'";');
-		$row=mysql_fetch_assoc($res);
+		$res = mysqli_query($conn,'select count(*) as total from user_info where nickname="'.$nick.'";');
+		$row = mysqli_fetch_assoc($res);
 		$res2 = $row['total'];
 	
 if(!$res1&&!$res2){
-$query = "insert into pinfo(id,password,birthdate,nickname) values('".$id."','".$pswd."','".$birth."','".$nick."')";
-$result = mysql_query($query, $conn);
+$query = "insert into user_info(id,password,birthdate,nickname) values('".$id."','".$pswd."','".$birth."','".$nick."')";
+$result = mysqli_query($conn,$query);
 	echo "<script>alert('회원가입 성공!!')</script>";
-	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
-}else{
-	if($res1)echo "<script>alert('이미 존재하는 id 입니다!!')</script>";
-	if($res2)echo "<script>alert('이미 존재하는 닉네임 입니다!!')</script>";
-	
-}
+	echo '<script>location.href="http://hypertime.tk/main.php"</script>';
+	}else{
+		if($res1)echo "<script>alert('이미 존재하는 id 입니다!!')</script>";
+		if($res2)echo "<script>alert('이미 존재하는 닉네임 입니다!!')</script>";
+	}
 
 }
 $cnt++;
