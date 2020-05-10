@@ -101,7 +101,7 @@ echo '<li><a href="http://hypertime.tk/mypage.php">마이페이지</a></li>';
 }
 else {
 echo '<li><a href="http://hypertime.tk/login.php">로그인</a></li>';
-echo '<li><a href="http://hyprtimr.tk/signup.php">회원가입</a></li>';
+echo '<li><a href="http://hypertime.tk/signup.php">회원가입</a></li>';
 echo '<li><a href="http://hypertime.tk/findpswd.php">비번찾기</a></li>';
 }
 ?>
