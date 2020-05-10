@@ -27,25 +27,25 @@ echo "<script>alert('권한이 없습니다.')</script>";
 }
 
 if($cnt!=0){
-if(ereg("^[[:alnum:]]{6,20}$",$pswd)){
+if(preg_match("^[[:alnum:]]{6,20}$",$pswd)){
 	}else{
 		echo "<script>alert('비밀번호가 6~20자 사이의 문자나 숫자의 조합이 아닙니다. ')</script>";
 		$err++;
 	}
 	
-if(ereg("^[[:alnum:]]{6,20}$",$pswd)){
+if(preg_match("^[[:alnum:]]{6,20}$",$pswd)){
 	}else{
 		echo "<script>alert('비밀번호가 6~20자 사이의 영문자나 숫자의 조합이 아닙니다. ')</script>";
 		$err++;
 	}
 	
-if(ereg("^[[:alnum:]]{3,20}$",$nick)){
+if(preg_match("^[[:alnum:]]{3,20}$",$nick)){
 	}else{
 		echo "<script>alert('닉네임이 3~20자 사이의 영문자나 숫자의 조합이 아닙니다. ')</script>";
 		$err++;
 	}
 
-if(ereg("^[[:digit:]]{8,8}$",$birth)){
+if(preg_match("^[[:digit:]]{8,8}$",$birth)){
 	}else{
 		echo "<script>alert('생년월일이 8자리로 되어있지 않습니다.')</script>";
 		$err++;
@@ -125,7 +125,7 @@ $cnt++;
 	<table border="1" width="550px" height="100px" align="center" name="table">
 	   <tr>
 	   <td>아이디</td>
-	   <td><?echo $id;?></td>
+	   <td><?php echo $id;?></td>
 	   </tr>
 	   <tr>
 	   <td>비밀번호</td>
