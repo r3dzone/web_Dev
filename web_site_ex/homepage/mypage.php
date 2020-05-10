@@ -9,22 +9,21 @@ $birth = $_POST['생년월일'];
 $err = 0;
 
 $dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
-mysql_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysqli_query("set session character_set_client=utf8;");
 	
 
 if(empty($id)){
 echo "<script>alert('권한이 없습니다.')</script>";
-	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="http://hypertime.tk/main.php"</script>';
 }
 
 if($cnt!=0){
@@ -48,46 +47,46 @@ if(ereg("^[[:alnum:]]{3,20}$",$nick)){
 
 if(ereg("^[[:digit:]]{8,8}$",$birth)){
 	}else{
-		echo "<script>alert('생년월일이 8자리로 되어있지 않습니다. ')</script>";
+		echo "<script>alert('생년월일이 8자리로 되어있지 않습니다.')</script>";
 		$err++;
 	}
 }
+
 if($cnt!=0&&$err == 0){
 	
-	$res = mysql_query('select count(*) as total from pinfo where nickname="'.$nicks.'";');
-	$row=mysql_fetch_assoc($res);
+	$res = mysqli_query($conn,'select count(*) as total from user_info where nickname="'.$nicks.'";');
+	$row=mysqli_fetch_assoc($res);
     $total = $row['total'];
 	
 	echo "<script>alert('".$birth."')</script>";
 	
-		$query = "update pinfo set birthdate = '".$birth."' where id ='".$id."';";
-		$result = mysql_query($query, $conn);
+		$query = "update user_info set birthdate = '".$birth."' where id ='".$id."';";
+		$result = mysqli_query($conn,$query);
 		
-		$query = "update pinfo set password = '".$pswd."' where id ='".$id."';";
-		$result = mysql_query($query, $conn);
+		$query = "update user_info set password = '".$pswd."' where id ='".$id."';";
+		$result = mysqli_query($conn,$query);
 	
 	if(!$total){
 		
-		$query = "update pinfo set nickname = '".$nicks."' where id ='".$id."';";
-		$result = mysql_query($query, $conn);
+		$query = "update user_info set nickname = '".$nicks."' where id ='".$id."';";
+		$result = mysqli_query($conn, $query);
 
-}else if($nick!=$nicks){
- echo "<script>alert('이미 있는 닉네임입니다!!')</script>";
- echo '<script>location.href="http:///~unknown/homepage/mypage.php"</script>';
-}
-echo "<script>alert('정보수정 성공!!')</script>";
-	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
+	}else if($nick!=$nicks){
+ 		echo "<script>alert('이미 있는 닉네임입니다!!')</script>";
+		echo '<script>location.href="http://hypertime.tk/mypage.php"</script>';
+	}
+	
+	echo "<script>alert('정보수정 성공!!')</script>";
+	echo '<script>location.href="http://hypertime.tk/main.php"</script>';
 }
 
-	$res = mysql_query('select password,birthdate,nickname from pinfo where id="'.$id.'"');
-	while($row=mysql_fetch_array($res)){
+	$res = mysqli_query($conn,'select password,birthdate,nickname from user_info where id="'.$id.'"');
+	while($row=mysqli_fetch_array($res)){
 		$pswd = $row['password'];
 		$birth = $row['birthdate'];
 		$nick = $row['nickname'];
 	}
 	
-
-
 $cnt++;
 ?>
 
@@ -112,7 +111,7 @@ $cnt++;
 		color:skyblue;
 		}
 		body{
-		background-image:url('c.png');
+		background-image:url('back_ground.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		
@@ -122,7 +121,7 @@ $cnt++;
 	<body>
 	   <h1 align="center" font-family="ITCBLKAD">회원정보
 	 <form method="POST" action="" name="form">
-	<div style="border:3px solid skyblue ;width:550px;" >
+	<div style="border:3px solid skyblue; width:550px;" >
 	<table border="1" width="550px" height="100px" align="center" name="table">
 	   <tr>
 	   <td>아이디</td>
@@ -171,5 +170,3 @@ $cnt++;
 	</body>
 
 </html>
-
-			 
