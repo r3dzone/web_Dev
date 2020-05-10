@@ -15,11 +15,11 @@ $dbPw = '';
 $dbName = '';
 $conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
-mysql_query($conn,"set session character_set_connection=utf8;");
+mysqli_query($conn,"set session character_set_connection=utf8;");
 
-mysql_query($conn,"set session character_set_results=utf8;");
+mysqli_query($conn,"set session character_set_results=utf8;");
 
-mysql_query($conn,"set session character_set_client=utf8;");
+mysqli_query($conn,"set session character_set_client=utf8;");
 	
 
 if($cnt!=0){
