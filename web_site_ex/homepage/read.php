@@ -52,7 +52,7 @@ mysqli_query($conn,"set session character_set_results=utf8;");
 
 mysqli_query($conn,"set session character_set_client=utf8;");
 		
-	$res = mysqli_query($conn,'select idx,contentname,content,nickname,attach,secret from fboard_content where idx="'.$kn.'";');
+	$res = mysqli_query($conn,'select idx,contentname,content,nickname,attach,secret from fboard_content where idx="'.$idx.'";');
 	while($row=mysqli_fetch_array($res)){
 	if($row['secret'] == 1 && $row['nickname'] != $_SESSION['nick'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
@@ -213,7 +213,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 	
 	#}
 	*/
-	mysql_close($conn);
+	mysqli_close($conn);
 		?>
 		 </table>
   </div>
