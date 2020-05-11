@@ -2,23 +2,22 @@
 session_start();
 
 $dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 $file = $_FILES['uploadfile'];
 
-mysql_query("set session character_set_connection=utf8;");
+mysqli_query($conn,"set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysqli_query($conn,"set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysqli_query($conn,"set session character_set_client=utf8;");
 
 if($_POST["contentname"]!="" && $_POST["content"]!=""){
-$query = "insert into hpcontent(contentname,content,secret,download,nickname) values('".$_POST["contentname"]."','".$_POST["content"]."','".$_POST["secret"]."','".$file['name']."','".$_SESSION['nick']."')";
+$query = "insert into fboard_content(contentname,content,secret,atach,nickname,id) values('".$_POST["contentname"]."','".$_POST["content"]."','".$_POST["secret"]."','".$file['name']."','".$_SESSION['nick']."','".$_SESSION['id']."')";
 
-$result = mysql_query($query, $conn);
+$result = mysqli_query($conn,$query);
 
 if($result) echo "Input Success<br>";
 	else echo "Input Failed<br>";
@@ -36,6 +35,6 @@ if(isset($file)){
 	}
 	
 }
-mysql_close($conn);
-	echo '<script>location.href="http:///~unknown/homepage/freeboard.php"</script>';
+mysqli_close($conn);
+	echo '<script>location.href="http://hypertime.tk/freeboard.php"</script>';
 	?>

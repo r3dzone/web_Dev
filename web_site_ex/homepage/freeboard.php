@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $id =$_SESSION['id'];
@@ -7,13 +8,13 @@ if(empty($pg))$pg =0;
 
 if(empty($id)){
 echo "<script>alert('권한이 없습니다.')</script>";
-	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="/main.php"</script>';
 }
 ?>
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>Utack's freeboard</title>
+		<title>정시방[자유게시판]</title>
 		<style>
 		a{
 			color:black;
@@ -49,7 +50,7 @@ echo "<script>alert('권한이 없습니다.')</script>";
 		}
 
 		body{
-		background-image:url('d.png');
+		background-image:url('back_ground.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		}
@@ -104,12 +105,12 @@ echo "<script>alert('권한이 없습니다.')</script>";
 		 </style>
 	</head>
 	<body>
-	  <h1 font-family="ITCBLKAD"><a href="http:///~unknown/homepage/main.php">TACK'S BOARD</a>
+	  <h1 font-family="ITCBLKAD"><a href="/main.php">HTC BOARD</a>
 <nav id="menubar" >
 		<ul>
-			<li><a class="sel" href="http:///~unknown/homepage/freeboard.php">FreeBoard</a></li>
+			<li><a class="sel" href="/freeboard.php">FreeBoard</a></li>
 			<li>|</li>
-			<li><a class="sel" href="http:///~unknown/homepage/mypage.php">MyPage</a></li>
+			<li><a class="sel" href="/mypage.php">MyPage</a></li>
 			<li>|</li>
 			<li><a class="sel" href="">Secret</a></li>
 			<li>|</li>
@@ -120,17 +121,17 @@ echo "<script>alert('권한이 없습니다.')</script>";
 	</nav>
 <ul id = "menu">
 <?php
- session_start();
+	session_start();
 if(isset($_SESSION['id'])){
-echo '<li><a href="/~unknown/homepage/logout.php">로그아웃</a></li>';
-echo '<li><a href="/~unknown/homepage/write.php">글 쓰기</a></li>';
+	echo '<li><a href="/logout.php">로그아웃</a></li>';
+	echo '<li><a href="/write.php">글 쓰기</a></li>';
 }
 else {
-echo '<li><a href="http:///~unknown/homepage/login.php">로그인</a></li>';
-echo ' <li><a href="http:///~unknown/homepage/signup.php">회원가입</a></li>';
-echo '<li><a href="http:///~unknown/homepage/findpswd.php">비번찾기</a></li>';
+	echo '<li><a href="/login.php">로그인</a></li>';
+	echo ' <li><a href="/signup.php">회원가입</a></li>';
+	echo '<li><a href="/findpswd.php">비번찾기</a></li>';
 }
-	?>
+?>
 </ul>
 </br>
 
@@ -161,28 +162,27 @@ echo '<li><a href="http:///~unknown/homepage/findpswd.php">비번찾기</a></li>
 
 <?php
 $dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
-mysql_query("set session character_set_connection=utf8;");
+mysqli_query($conn,"set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysqli_query($conn,"set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysqli_query($conn,"set session character_set_client=utf8;");
 	
-	$res = mysql_query('select kn,nickname,contentname,secret  from hpcontent order by kn desc limit '.(15*$pg).',15');
-	while($row=mysql_fetch_array($res)){
+	$res = mysqli_query($conn,'select idx,nickname,contentname,secret from freeboard_content order by idx desc limit '.(15*$pg).',15');
+	while($row=mysqli_fetch_array($res)){
 	
-	    if($_SESSION['maxkn'] < $row['kn']){
-			$_SESSION['maxkn'] = $row['kn'];
+	    if($_SESSION['maxidx'] < $row['idx']){
+			$_SESSION['maxidx'] = $row['idx'];
 		}
 		
 		echo "<tr>";
 	    echo "<td width='10%'>";
-		echo $row['kn'];
+		echo $row['idx'];
 		echo "</td>";
 	
 		echo "<td width='20%'>";
@@ -190,30 +190,30 @@ mysql_query("set session character_set_client=utf8;");
 		echo "</td>";
 		
 		echo "<td width='50%'>";
-		echo "<a href = 'http:///~unknown/homepage/read.php?kn=".$row['kn']."'>".$row['contentname'];
+		echo "<a href = '/read.php?kn=".$row['idx']."'>".$row['contentname'];
 		if($row['secret']){
 		echo "[비밀글]</a>";
 		}else{
 		echo "</a>";
 		}
-		$res1 = mysql_query('select count(*) as total from reply where contentn="'.$row['kn'].'";');
+		$res1 = mysqli_query('select count(*) as total from reply where contentn="'.$row['idx'].'";');
 		$row1=mysql_fetch_assoc($res1);
 		$total = $row1['total'];
 		echo "<font color='blue'>(".$total.")</font>";
 		
 		echo "</td>";
 		
-		echo "<td width='20%'>";
-		$res1 = mysql_query('select count(*) as total from contentinfo where kn="'.$row['kn'].'";');
-		$row1=mysql_fetch_assoc($res1);
-		$total = $row1['total'];		
-		echo "<font color='blue'>".$total."</font>";
-		echo "</td>";
+		#echo "<td width='20%'>";
+		#$res1 = mysqli_query('select count(*) as total from contentinfo where kn="'.$row['kn'].'";');
+		#$row1=mysql_fetch_assoc($res1);
+		#$total = $row1['total'];		
+		#echo "<font color='blue'>".$total."</font>";
+		#echo "</td>";
 		
 	echo "</tr>";
 	}
 	
-	mysql_close($conn);
+	mysqli_close($conn);
 	
 ?>
 		
@@ -221,16 +221,16 @@ mysql_query("set session character_set_client=utf8;");
   </div>
 		<p>
 		<ul><h6>
-			<li><a href="http://junior.catsecurity.net/~unknown/homepage/freeboard.php?page=0">1</a></li>
+			<li><a href="/freeboard.php?page=0">1</a></li>
 			
 			<?
-			$tmp = ($_SESSION['maxkn']/15);
+			$tmp = ($_SESSION['maxidx']/15);
 			if($tmp > 1){
 			$tcnt = 2;
 			while($tmp > 1){
 			echo '<li>|</li>';
 			if(($tcnt-1)== $pg)echo "<font color:blue>";	
-			echo '<li><a href="http:///~unknown/homepage/freeboard.php?page='.($tcnt-1).'">'.$tcnt.'</a></li>';
+			echo '<li><a href="/freeboard.php?page='.($tcnt-1).'">'.$tcnt.'</a></li>';
 			if(($tcnt-1)== $pg)echo "</font>";	
 			$tcnt++;
 			$tmp--;

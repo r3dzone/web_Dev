@@ -18,7 +18,7 @@
 		}
 
 		body{
-		background-image:url('d.png');
+		background-image:url('back_ground.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		}
