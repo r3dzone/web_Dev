@@ -15,7 +15,7 @@ mysqli_query($conn,"set session character_set_results=utf8;");
 mysqli_query($conn,"set session character_set_client=utf8;");
 
 if($_POST["contentname"]!="" && $_POST["content"]!=""){
-$query = "insert into fboard_content(contentname,content,secret,atach,nickname,id) values('".$_POST["contentname"]."','".$_POST["content"]."','".$_POST["secret"]."','".$file['name']."','".$_SESSION['nick']."','".$_SESSION['id']."')";
+$query = "insert into fboard_content(contentname,content,secret,attach,nickname,id) values('".$_POST["contentname"]."','".$_POST["content"]."','".$_POST["secret"]."','".$file['name']."','".$_SESSION['nick']."','".$_SESSION['id']."')";
 
 $result = mysqli_query($conn,$query);
 
@@ -36,5 +36,5 @@ if(isset($file)){
 	
 }
 mysqli_close($conn);
-	echo '<script>location.href="http://hypertime.tk/freeboard.php"</script>';
+	echo '<script>location.href="/freeboard.php"</script>';
 	?>

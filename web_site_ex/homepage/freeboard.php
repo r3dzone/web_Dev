@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 $id =$_SESSION['id'];
@@ -173,7 +172,7 @@ mysqli_query($conn,"set session character_set_results=utf8;");
 
 mysqli_query($conn,"set session character_set_client=utf8;");
 	
-	$res = mysqli_query($conn,'select idx,nickname,contentname,secret from freeboard_content order by idx desc limit '.(15*$pg).',15');
+	$res = mysqli_query($conn,'select idx,nickname,contentname,secret from fboard_content order by idx desc limit '.(15*$pg).',15');
 	while($row=mysqli_fetch_array($res)){
 	
 	    if($_SESSION['maxidx'] < $row['idx']){
@@ -190,14 +189,14 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		echo "</td>";
 		
 		echo "<td width='50%'>";
-		echo "<a href = '/read.php?kn=".$row['idx']."'>".$row['contentname'];
+		echo "<a href = '/read.php?idx=".$row['idx']."'>".$row['contentname'];
 		if($row['secret']){
 		echo "[비밀글]</a>";
 		}else{
 		echo "</a>";
 		}
 		$res1 = mysqli_query('select count(*) as total from reply where contentn="'.$row['idx'].'";');
-		$row1=mysql_fetch_assoc($res1);
+		$row1=mysqli_fetch_assoc($res1);
 		$total = $row1['total'];
 		echo "<font color='blue'>(".$total.")</font>";
 		
@@ -223,7 +222,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		<ul><h6>
 			<li><a href="/freeboard.php?page=0">1</a></li>
 			
-			<?
+			<?php
 			$tmp = ($_SESSION['maxidx']/15);
 			if($tmp > 1){
 			$tcnt = 2;
