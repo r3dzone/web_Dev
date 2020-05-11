@@ -21,7 +21,7 @@
 		}
 
 		body{
-		background-image:url('d.png');
+		background-image:url('back_ground.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		}
@@ -38,37 +38,36 @@
 session_start();
 $id =$_SESSION['id'];
 $nick =$_SESSION['nick'];
-$kn = $_GET['kn'];
+$idx = $_GET['idx'];
 
 $dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
-mysql_query("set session character_set_connection=utf8;");
+mysqli_query($conn,"set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysqli_query($conn,"set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysqli_query($conn,"set session character_set_client=utf8;");
 		
-	$res = mysql_query('select kn,contentname,content,nickname,download,secret from hpcontent where kn='.$kn);
-	while($row=mysql_fetch_array($res)){
+	$res = mysqli_query($conn,'select idx,contentname,content,nickname,attach,secret from fboard_content where idx="'.$kn.'";');
+	while($row=mysqli_fetch_array($res)){
 	if($row['secret'] == 1 && $row['nickname'] != $_SESSION['nick'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
-		echo '<script>location.href="http:///~unknown/homepage/freeboard.php"</script>';
+		echo '<script>location.href="/freeboard.php"</script>';
 	}else{	
-	$res1 = mysql_query('select count(*) as total from contentinfo where visitor="'.$nick.'" AND kn="'.$kn.'";');
-	$row1=mysql_fetch_assoc($res1);
-    $total = $row1['total'];
-	if($total == 0){
-	mysql_query('insert into contentinfo(kn,visitor) values("'.$kn.'","'.$nick.'");'); 
-		}
+	#$res1 = mysqli_query($conn,'select count(*) as total from contentinfo where visitor="'.$nick.'" AND kn="'.$kn.'";');
+	#$row1=mysql_fetch_assoc($res1);
+    #$total = $row1['total'];
+	#if($total == 0){
+	#mysql_query('insert into contentinfo(kn,visitor) values("'.$kn.'","'.$nick.'");'); 
+		#}
 	}
 	echo "<tr>";
 	    echo "<td width='10%'>";
-		echo $row['kn'];
+		echo $row['idx'];
 		echo "</td>";
 	
 		echo "<td width='70%'>";
@@ -76,7 +75,7 @@ mysql_query("set session character_set_client=utf8;");
 		echo htmlentities($str);
 		echo "</td>";
 		
-		echo '<form method="POST" action="./rewrite.php?kn='.$kn.'" name="">';
+		echo '<form method="POST" action="./rewrite.php?idx='.$idx.'" name="">';
 		
 		echo "<td width='10%'>";
 		echo "<input type='submit' name='adjust' value='수정'/>";
@@ -84,7 +83,7 @@ mysql_query("set session character_set_client=utf8;");
 		
 		echo '</form>';
 	
-		echo '<form method="POST" action="./delete.php?kn='.$kn.'" name="">';
+		echo '<form method="POST" action="./delete.php?idx='.$idx.'" name="">';
 		
 		if($nick==$row['nickname']){
 		echo "<td width='10%'>";
@@ -114,7 +113,7 @@ mysql_query("set session character_set_client=utf8;");
 	
 	echo "<tr>";
 		echo "<td colspan='4' width='100%'>";
-		echo "<a href = 'http:///~unknown/homepage/freeboarddownload.php?filename=".$row['download']."'>".$row['download']."</a>";
+		echo "<a href = '/freeboarddownload.php?filename=".$row['download']."'>".$row['download']."</a>";
 		echo "</td>";
 		
 	echo "</tr>";
@@ -123,19 +122,19 @@ mysql_query("set session character_set_client=utf8;");
 		<tr>';
 	echo '<form method="POST" action="./goodandbad.php" name="">';
 	echo '<td><input type="submit" name="submit" value="좋아요"/>';
-		$res1 = mysql_query('select count(*) as total from contentinfo where kn="'.$row['kn'].'" AND good = "1";');
-		$row1=mysql_fetch_assoc($res1);
-		$total = $row1['total'];
-	echo $total.'</td>';
-	echo '<input type="hidden" name="kn" value ="'.$kn.'">';
+		#$res1 = mysql_query('select count(*) as total from contentinfo where idx="'.$row['idx'].'" AND good = "1";');
+		#$row1=mysql_fetch_assoc($res1);
+		#$total = $row1['total'];
+	#echo $total.'</td>';
+	echo '<input type="hidden" name="idx" value ="'.$idx.'">';
 	echo '</form>';	
 	echo '<form method="POST" action="./goodandbad.php" name="">';
 	echo '<td><input type="submit" name="submit" value="싫어요"/>';
-	$res1 = mysql_query('select count(*) as total from contentinfo where kn="'.$row['kn'].'" AND good = "2";');
-		$row1=mysql_fetch_assoc($res1);
-		$total = $row1['total'];
-	echo $total.'</td>';
-	echo '<input type="hidden" name="kn" value ="'.$kn.'">';
+	#$res1 = mysql_query('select count(*) as total from contentinfo where kn="'.$row['kn'].'" AND good = "2";');
+		#$row1=mysql_fetch_assoc($res1);
+		#$total = $row1['total'];
+	#echo $total.'</td>';
+	echo '<input type="hidden" name="idx" value ="'.$idx.'">';
 	echo '</form>';	
 	echo'</tr>
 		</table>
@@ -157,7 +156,8 @@ mysql_query("set session character_set_client=utf8;");
  
 	   <div style="border:3px solid skyblue ;width:700px;" >
 	    <table border="1" width="700px" height="100px" align="center" name="table">
-		<?
+		<?php
+			/*
 		$res = mysql_query('select replyn,reply,secret,writer,rereply from reply where contentn ='.$kn.' order by rereply asc,replyn asc');
 	while($row=mysql_fetch_array($res)){
 	
@@ -211,8 +211,8 @@ mysql_query("set session character_set_client=utf8;");
 		
 	echo "</tr>";
 	
-	}
-	
+	#}
+	*/
 	mysql_close($conn);
 		?>
 		 </table>
