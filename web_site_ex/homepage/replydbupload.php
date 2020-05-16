@@ -3,49 +3,48 @@ session_start();
 $id =$_SESSION['id'];
 $nick =$_SESSION['nick'];
 $replyns = $_POST["replyn"];
-$kn = $_POST["kn"];
+$idx = $_POST["idx"];
 
 $err = 0;
 
 if($_POST["reply"]==""){
 echo "<script>alert('empty!!')</script>";
-echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
+echo '<script>location.href="/read.php?idx='.$idx.'"</script>';
 $err = 3;
 }
 
 echo "<script>alert('success upload!!')</script>";
 $dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
-mysql_query("set session character_set_connection=utf8;");
+mysqli_query($conn,"set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysqli_query($conn,"set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysqli_query($conn,"set session character_set_client=utf8;");
 
 if(isset($_POST["reply"])&& $err !=3 ){
 
 if($replyns == ""){
-$query = "insert into reply(contentn,reply,secret,writer,rereply) values('".$kn."','".$_POST["reply"]."','".$_POST["secret"]. "','".$nick."',LAST_INSERT_ID()+1)"; 
-$result = mysql_query($query, $conn);
-$last = mysql_insert_id();
+$query = "insert into reply(contentn,reply,secret,writer,rereply) values('".$idx."','".$_POST["reply"]."','".$_POST["secret"]. "','".$nick."',LAST_INSERT_ID()+1)"; 
+$result = mysqli_query($conn,$query);
+$last = mysqli_insert_id();
 $query = "update reply set rereply = '".$last."' where replyn =".$last;
-$result = mysql_query($query, $conn);
+$result = mysqli_query($conn,$query);
 }else{
-	$query = "insert into reply(contentn,reply,secret,writer,rereply) values('".$kn."','".$_POST["reply"]."','".$_POST["secret"]. "','".$nick."',LAST_INSERT_ID()+1)"; 
-	$result = mysql_query($query, $conn);
-	$last = mysql_insert_id();
+	$query = "insert into reply(contentn,reply,secret,writer,rereply) values('".$idx."','".$_POST["reply"]."','".$_POST["secret"]. "','".$nick."',LAST_INSERT_ID()+1)"; 
+	$result = mysqli_query($conn, $query);
+	$last = mysqli_insert_id();
 	$query = "update reply set rereply = '".$replyns."' where replyn =".$last;
-	$result = mysql_query($query, $conn);
+	$result = mysqli_query($conn,$query);
 	}
 
 }
-mysql_close($conn);
+mysqli_close($conn);
 
-echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
+echo '<script>location.href="/read.php?idx='.$idx.'"</script>';
 
 	?>

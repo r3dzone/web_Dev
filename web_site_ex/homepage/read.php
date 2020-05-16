@@ -158,7 +158,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 	    <table border="1" width="700px" height="100px" align="center" name="table">
 		<?php
 			
-		$res = mysqli_query('select replyn,reply,secret,writer,rereply from fboard_reply where contentn ='.$idx.' order by rereply asc,replyn asc');
+		$res = mysqli_query($conn,'select replyn,reply,secret,writer,rereply from fboard_reply where contentn ='.$idx.' order by rereply asc,replyn asc');
 	while($row=mysqli_fetch_array($res)){
 		
 	echo "<tr>";
