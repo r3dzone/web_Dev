@@ -1,7 +1,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>Utack's board</title>
+		<title>HTC board</title>
 		<style>
 		p{
 			color: gray;
@@ -157,11 +157,10 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 	   <div style="border:3px solid skyblue ;width:700px;" >
 	    <table border="1" width="700px" height="100px" align="center" name="table">
 		<?php
-			/*
-		$res = mysql_query('select replyn,reply,secret,writer,rereply from reply where contentn ='.$kn.' order by rereply asc,replyn asc');
-	while($row=mysql_fetch_array($res)){
-	
-	
+			
+		$res = mysqli_query('select replyn,reply,secret,writer,rereply from fboard_reply where contentn ='.$idx.' order by rereply asc,replyn asc');
+	while($row=mysqli_fetch_array($res)){
+		
 	echo "<tr>";
 	    echo "<td width='15%'>";
 		echo $row['writer'];
@@ -181,7 +180,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		echo "</td>";
 		if($row['replyn']!=$row['rereply'])echo "</p>";
 	}
-		echo '<form method="POST" action="./rereply.php?replyn='.$row['replyn'].'&kn='.$kn.'" name="">';
+		echo '<form method="POST" action="./rereply.php?replyn='.$row['replyn'].'&idx='.$idx.'" name="">';
 		
 		echo "<td width='5%'>";
 		echo "<input type='submit' name='rereply' value='답글'/>";
@@ -189,7 +188,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		
 		echo '</form>';
 		
-		echo '<form method="POST" action="./replyrewrite.php?replyn='.$row['replyn'].'&kn='.$kn.'" name="">';
+		echo '<form method="POST" action="./replyrewrite.php?replyn='.$row['replyn'].'&idx='.$idx.'" name="">';
 		
 		echo "<td width='5%'>";
 		echo "<input type='submit' name='adjust' value='수정'/>";
@@ -197,7 +196,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		
 		echo '</form>';
 	
-		echo '<form method="POST" action="./delete.php?replyn='.$row['replyn'].'&kn='.$kn.'" name="">';
+		echo '<form method="POST" action="./delete.php?replyn='.$row['replyn'].'&idx='.$idx.'" name="">';
 		
 		if($nick==$row['writer']){
 		echo "<td width='5%'>";
@@ -210,9 +209,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		echo '</form>';
 		
 	echo "</tr>";
-	
-	#}
-	*/
+	}
 	mysqli_close($conn);
 		?>
 		 </table>
