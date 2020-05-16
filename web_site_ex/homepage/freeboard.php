@@ -195,8 +195,8 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		}else{
 		echo "</a>";
 		}
-		$res1 = mysqli_query('select count(*) as total from reply where contentn="'.$row['idx'].'";');
-		$row1=mysqli_fetch_assoc($res1);
+		$res1 = mysqli_query($conn,'select count(*) as total from fboard_reply where contentn="'.$row['idx'].'";');
+		$row1 = mysqli_fetch_assoc($res1);
 		$total = $row1['total'];
 		echo "<font color='blue'>(".$total.")</font>";
 		

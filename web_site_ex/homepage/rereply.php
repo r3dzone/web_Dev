@@ -3,12 +3,12 @@ session_start();
 $id =$_SESSION['id'];
 $nick =$_SESSION['nick'];
 $replyn = $_GET['replyn'];
-$kn = $_GET['kn'];
+$idx = $_GET['idx'];
 ?>
  <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>Utack's board</title>
+		<title>HTC's board</title>
 		<style>
 		div{
 		margin: auto;
@@ -25,7 +25,7 @@ $kn = $_GET['kn'];
 		}
 
 		body{
-		background-image:url('d.png');
+		background-image:url('back_ground.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		}
@@ -45,7 +45,7 @@ $kn = $_GET['kn'];
 					<td colspan="5"><textarea rows = '7' cols = '100' name="reply"></textarea>
 					</td>
 				</tr>		
-				<input type="hidden" name="kn" value ="<?=$kn?>">
+				<input type="hidden" name="idx" value ="<?=$idx?>">
 				<input type="hidden" name="replyn" value ="<?=$replyn?>">
 				<tr>
 					<td colspan="1"><input type="checkbox" name="secret" value="1">비밀 답글</td>	
