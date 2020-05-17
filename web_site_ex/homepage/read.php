@@ -120,7 +120,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 	
 	echo '<table border="1" width="200px" align="center" name="table">
 		<tr>';
-	echo '<form method="POST" action="./goodandbad.php" name="">';
+	echo '<form method="POST" action="./likey.php" name="">';
 	echo '<td><input type="submit" name="submit" value="좋아요"/>';
 		$res1 = mysqli_query($conn,'select count(*) as total from fboard_contentinfo where contentn="'.$row['idx'].'" AND likey = "1";');
 		$row1=mysqli_fetch_assoc($res1);
@@ -128,7 +128,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		echo $total.'</td>';
 	echo '<input type="hidden" name="idx" value ="'.$idx.'">';
 	echo '</form>';	
-	echo '<form method="POST" action="./goodandbad.php" name="">';
+	echo '<form method="POST" action="./likey.php" name="">';
 	echo '<td><input type="submit" name="submit" value="싫어요"/>';
 	$res1 = mysqli_query($conn,'select count(*) as total from fboard_contentinfo where contentn="'.$row['idx'].'" AND likey = "2";');
 		$row1=mysqli_fetch_assoc($res1);
