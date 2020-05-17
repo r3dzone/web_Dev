@@ -55,9 +55,9 @@ $nick =$_SESSION['nick'];
 </body>
 
 	 <script>
-   function refresh(){     
-   char_read.location.href="/char_read.php";
+   function chat_refresh(){     
+   chat_read.location.href="/chat_read.php";
    }
-	var timer = setInterval(refresh(), 3000);
-	</script>
+	var sohwan = setInterval(chat_refresh(), 3000);
+	 </script>
 </html>
