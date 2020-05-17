@@ -58,12 +58,12 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		echo "<script>alert('권한이 없습니다.')</script>";
 		echo '<script>location.href="/freeboard.php"</script>';
 	}else{	
-	#$res1 = mysqli_query($conn,'select count(*) as total from contentinfo where visitor="'.$nick.'" AND kn="'.$kn.'";');
-	#$row1=mysql_fetch_assoc($res1);
-    #$total = $row1['total'];
-	#if($total == 0){
-	#mysql_query('insert into contentinfo(kn,visitor) values("'.$kn.'","'.$nick.'");'); 
-		#}
+	$res1 = mysqli_query($conn,'select count(*) as total from fboard_contentinfo where contentn="'.$idx.'" AND visitor="'.$id.'";');
+	$row1 = mysqli_fetch_assoc($res1);
+    $total = $row1['total'];
+	if($total == 0){
+		mysqli_query($conn,'insert into fboard_contentinfo(contentn,visitor) values("'.$idx.'","'.$id.'");'); 
+		}
 	}
 	echo "<tr>";
 	    echo "<td width='10%'>";
@@ -122,18 +122,18 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 		<tr>';
 	echo '<form method="POST" action="./goodandbad.php" name="">';
 	echo '<td><input type="submit" name="submit" value="좋아요"/>';
-		#$res1 = mysql_query('select count(*) as total from contentinfo where idx="'.$row['idx'].'" AND good = "1";');
-		#$row1=mysql_fetch_assoc($res1);
-		#$total = $row1['total'];
-	#echo $total.'</td>';
+		$res1 = mysqli_query($conn,'select count(*) as total from fboard_contentinfo where contentn="'.$row['idx'].'" AND likey = "1";');
+		$row1=mysqli_fetch_assoc($res1);
+		$total = $row1['total'];
+		echo $total.'</td>';
 	echo '<input type="hidden" name="idx" value ="'.$idx.'">';
 	echo '</form>';	
 	echo '<form method="POST" action="./goodandbad.php" name="">';
 	echo '<td><input type="submit" name="submit" value="싫어요"/>';
-	#$res1 = mysql_query('select count(*) as total from contentinfo where kn="'.$row['kn'].'" AND good = "2";');
-		#$row1=mysql_fetch_assoc($res1);
-		#$total = $row1['total'];
-	#echo $total.'</td>';
+	$res1 = mysqli_query($conn,'select count(*) as total from fboard_contentinfo where contentn="'.$row['idx'].'" AND likey = "2";');
+		$row1=mysqli_fetch_assoc($res1);
+		$total = $row1['total'];
+		echo $total.'</td>';
 	echo '<input type="hidden" name="idx" value ="'.$idx.'">';
 	echo '</form>';	
 	echo'</tr>
