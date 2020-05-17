@@ -1,4 +1,4 @@
-<?
+<?php
 $file_name =$_GET['filename'];//Download Filename
 $path = "./upload/$file_name";
 $file_size = filesize($path);
@@ -14,4 +14,3 @@ ob_clean();
 flush();
 readfile($path);
 ?>
-			 

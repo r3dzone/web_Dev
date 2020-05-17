@@ -113,7 +113,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 	
 	echo "<tr>";
 		echo "<td colspan='4' width='100%'>";
-		echo "<a href = '/freeboarddownload.php?filename=".$row['download']."'>".$row['download']."</a>";
+		echo "<a href = '/freeboarddownload.php?filename=".$row['attach']."'>".$row['attach']."</a>";
 		echo "</td>";
 		
 	echo "</tr>";
