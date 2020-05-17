@@ -35,7 +35,7 @@ $nick =$_SESSION['nick'];
 	</head>
 	<body>
 		
-<iframe src="/chat_read.php" width="700" height="300" frameborder="0" scrolling="yes" align="center" name="chat_read" ></iframe>
+<iframe src="/chat_read.php" width="700" height="300" scrolling="yes" align="center" name="chat_read" ></iframe>
 	
  <form method="POST" action="./chat_upload.php" name="reply">
 	   <div style="border:3px solid skyblue ;width:700px;" >
@@ -54,4 +54,10 @@ $nick =$_SESSION['nick'];
 
 </body>
 
+	 <script>
+   function refresh(){     
+   char_read.location.href="/char_read.php";
+   }
+	var timer = setInterval(refresh(), 3000);
+	</script>
 </html>

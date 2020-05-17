@@ -2,34 +2,6 @@
 	<head>
 	<meta charset="UTF-8">
 		<title>HTC chat</title>
-		<style>
-		p{
-			color: gray;
-		}
-		div{
-		margin: auto;
-		text-align: left;
-		}
-		
-		table{
-			border: 0px; solid black;
-			text-align: center;
-		}
-		h1{
-		font-family: Cursive;
-		color:skyblue;
-		}
-
-		body{
-		background-image:url('back_ground.png');
-		background-repeat:no-repeat;
-		background-position:50% 50%;
-		}
-	
-	div#condiv table{
-			text-align: left;
-		}
-		 </style>
 	</head>
 	<body>
   <div id = "condiv" style="border:3px solid skyblue ;width:700px;" >
