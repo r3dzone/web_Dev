@@ -34,6 +34,8 @@ $nick =$_SESSION['nick'];
 		 </style>
 	</head>
 	<body>
+		
+<iframe src="/chat_read.php" width="700" height="300" frameborder="0" scrolling="yes" align="center" name="chat_read" ></iframe>
 	
  <form method="POST" action="./chat_upload.php" name="reply">
 	   <div style="border:3px solid skyblue ;width:700px;" >
