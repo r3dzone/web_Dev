@@ -23,7 +23,7 @@ mysqli_query($conn,"set session character_set_connection=utf8;");
 mysqli_query($conn,"set session character_set_results=utf8;");
 mysqli_query($conn,"set session character_set_client=utf8;");
 		
-	$res = mysqli_query($conn,'select mesg,nick from chat order by chatn asc;');
+	$res = mysqli_query($conn,'select mesg,nick from chat order by chatn desc;');
 while($row = mysqli_fetch_array($res)){	
 	echo "<tr>";
 		echo "<td colspan='4' width='100%' j>";
