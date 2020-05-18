@@ -82,7 +82,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 				</tr>
 				<input type="hidden" name="idx" value="<?=$idx?>">
 				<tr>
-					<td colspan="8"><textarea rows = '30' cols = '130' name="content"><?echo $content;?></textarea>
+					<td colspan="8"><textarea rows = '30' cols = '130' name="content"><?php=echo $content;?></textarea>
 					</td>
 				</tr>				
 	   </table>
