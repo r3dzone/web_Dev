@@ -2,7 +2,7 @@
 session_start();
 $id =$_SESSION['id'];
 $nick =$_SESSION['nick'];
-$kn = $_GET['kn'];
+$idx = $_GET['idx'];
 
 $dbHost = 'localhost';
 $dbId = '';
@@ -16,7 +16,7 @@ mysqli_query($conn,"set session character_set_results=utf8;");
 
 mysqli_query($conn,"set session character_set_client=utf8;");
 	
-	$res = mysqli_query($conn,'select idx,contentname,content,id,download,secret from fboard_content where idx='.$idx.';');
+	$res = mysqli_query($conn,'select idx,contentname,content,id,attach,secret from fboard_content where idx='.$idx.';');
 	while($row=mysqli_fetch_array($res)){
 	if($row['id'] != $_SESSION['id'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
