@@ -5,21 +5,20 @@ $birth = $_GET['생년월일'];
 $err = 0;
 $iderr =0;
 
-$dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$dbHost = '';
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
-mysql_query("set session character_set_connection=utf8;");
+mysqli_query($conn,"set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysqli_query($conn,"set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysqli_query($conn,"set session character_set_client=utf8;");
 	
-	$res = mysql_query('select password,birthdate from pinfo where id="'.$id.'"');
-	while($row=mysql_fetch_array($res)){
+	$res = mysqli_query($conn,'select password,birthdate from user_info where id="'.$id.'"');
+	while($row=mysqli_fetch_array($res)){
 		if($birth == $row['birthdate']){
 	echo '<div style="border:3px solid skyblue ;width:550px;" >
 	<table border="1" width="550px" height="100px" align="center" name="table">
@@ -67,7 +66,7 @@ $cnt++;
 		color:skyblue;
 		}
 		body{
-		background-image:url('c.png');
+		background-image:url('back_grond.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		
