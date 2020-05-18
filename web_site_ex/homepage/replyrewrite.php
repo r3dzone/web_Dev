@@ -3,32 +3,31 @@ session_start();
 $id =$_SESSION['id'];
 $nick =$_SESSION['nick'];
 $replyn = $_GET['replyn'];
-$kn = $_GET['kn'];
+$idx = $_GET['idx'];
 
 $dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
-mysql_query("set session character_set_connection=utf8;");
+mysqli_query($conn,"set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysqli_query($conn,"set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysqli_query($conn,"set session character_set_client=utf8;");
 	
-	$res = mysql_query('select replyn,reply,secret,writer from reply where replyn ='.$replyn.' order by rereply asc,replyn asc');
+	$res = mysqli_query($conn,'select replyn,reply,secret,writer from fboard_reply where replyn ='.$replyn.' order by rereply asc,replyn asc');
 	
-	while($row=mysql_fetch_array($res)){
-	if($row['secret'] == 1 && $row['writer'] != $_SESSION['nick'] ){
+	while($row=mysqli_fetch_array($res)){
+	if($row['secret'] == 1 && $row['writer'] != $_SESSION['id'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
-		echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
+		echo '<script>location.href="/read.php?idx='.$idx.'"</script>';
 	}
-	if($row['writer'] != $_SESSION['nick'] ){
+	if($row['writer'] != $_SESSION['id'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
-		echo '<script>location.href="http:///~unknown/homepage/read.php?kn='.$kn.'"</script>';
-	}
+		echo '<script>location.href="/read.php?idx='.$idx.'"</script>';
+	} 
 	$reply = $row['reply'];
 	}
 	
@@ -36,7 +35,7 @@ mysql_query("set session character_set_client=utf8;");
  <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>Utack's board</title>
+		<title>HTC board</title>
 		<style>
 		div{
 		margin: auto;
@@ -53,7 +52,7 @@ mysql_query("set session character_set_client=utf8;");
 		}
 
 		body{
-		background-image:url('d.png');
+		background-image:url('back_ground.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		}
@@ -70,7 +69,7 @@ mysql_query("set session character_set_client=utf8;");
 	    <table border="1" width="700px" height="100px" align="center" name="table">
   
 				<tr>
-					<td colspan="5"><textarea rows = '7' cols = '100' name="reply"><?echo $reply;?></textarea>
+					<td colspan="5"><textarea rows = '7' cols = '100' name="reply"><?php echo $reply;?></textarea>
 					</td>
 				</tr>		
 				<input type="hidden" name="kn" value ="<?=$kn?>">
