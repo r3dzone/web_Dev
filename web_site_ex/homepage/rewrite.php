@@ -5,27 +5,22 @@ $nick =$_SESSION['nick'];
 $kn = $_GET['kn'];
 
 $dbHost = 'localhost';
-$dbId = 'unknown';
-$dbPw = 'redzone';
-$dbName = 'unknown';
-$conn = mysql_connect($dbHost,$dbId,$dbPw);
-$a = mysql_select_db($dbName,$conn);
+$dbId = '';
+$dbPw = '';
+$dbName = '';
+$conn = mysqli_connect($dbHost,$dbId,$dbPw,$dbName);
 
-mysql_query("set session character_set_connection=utf8;");
+mysqli_query($conn,"set session character_set_connection=utf8;");
 
-mysql_query("set session character_set_results=utf8;");
+mysqli_query($conn,"set session character_set_results=utf8;");
 
-mysql_query("set session character_set_client=utf8;");
+mysqli_query($conn,"set session character_set_client=utf8;");
 	
-	$res = mysql_query('select kn,contentname,content,nickname,download,secret from hpcontent where kn='.$kn);
-	while($row=mysql_fetch_array($res)){
-	if($row['secret'] == 1 && $row['nickname'] != $_SESSION['nick'] ){
+	$res = mysqli_query($conn,'select idx,contentname,content,id,download,secret from fboard_content where idx='.$idx.';');
+	while($row=mysqli_fetch_array($res)){
+	if($row['id'] != $_SESSION['id'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
-		echo '<script>location.href="http:///~unknown/homepage/freeboard.php"</script>';
-	}
-	if($row['nickname'] != $_SESSION['nick'] ){
-		echo "<script>alert('권한이 없습니다.')</script>";
-		echo '<script>location.href="http:///~unknown/homepage/freeboard.php"</script>';
+		echo '<script>location.href="/freeboard.php"</script>';
 	}
 	$contentname = $row['contentname'];
 	$content = $row['content'];
@@ -53,7 +48,7 @@ mysql_query("set session character_set_client=utf8;");
 		}
 
 		body{
-		background-image:url('d.png');
+		background-image:url('back_ground.png');
 		background-repeat:no-repeat;
 		background-position:50% 50%;
 		}
@@ -85,7 +80,7 @@ mysql_query("set session character_set_client=utf8;");
 				<td colspan="1"><input type="checkbox" name="secret" value="1">비밀글</td>				
 				<td colspan="1"><input type="submit" name="submit" value="글쓰기" onclick="check()"/></td>
 				</tr>
-				<input type="hidden" name="kn" value="<?=$kn?>">
+				<input type="hidden" name="idx" value="<?=$idx?>">
 				<tr>
 					<td colspan="8"><textarea rows = '30' cols = '130' name="content"><?echo $content;?></textarea>
 					</td>
