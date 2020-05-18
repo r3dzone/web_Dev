@@ -17,14 +17,14 @@ mysqli_query($conn,"set session character_set_results=utf8;");
 
 mysqli_query($conn,"set session character_set_client=utf8;");
 	
-	$res = mysqli_query($conn,'select replyn,reply,secret,writer from fboard_reply where replyn ='.$replyn.' order by rereply asc,replyn asc');
+	$res = mysqli_query($conn,'select replyn,reply,secret,writer,id from fboard_reply where replyn ='.$replyn.' order by rereply asc,replyn asc');
 	
 	while($row=mysqli_fetch_array($res)){
-	if($row['secret'] == 1 && $row['writer'] != $_SESSION['id'] ){
+	if($row['secret'] == 1 && $row['id'] != $_SESSION['id'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
 		echo '<script>location.href="/read.php?idx='.$idx.'"</script>';
 	}
-	if($row['writer'] != $_SESSION['id'] ){
+	if($row['id'] != $_SESSION['id'] ){
 		echo "<script>alert('권한이 없습니다.')</script>";
 		echo '<script>location.href="/read.php?idx='.$idx.'"</script>';
 	} 
