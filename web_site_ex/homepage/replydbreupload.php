@@ -28,10 +28,10 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 
 if(isset($_POST["reply"])&& $err !=3 ){
 	
-$query = "update reply set secret = '".$_POST["secret"]."' where replyn =".$replyn.";";
+$query = "update fboard_reply set secret = '".$_POST["secret"]."' where replyn =".$replyn.";";
 $result = mysqli_query($conn,$query);
 
-$query = "update reply set reply = '".$_POST["reply"]."' where replyn =".$replyn.";";
+$query = "update fboard_reply set reply = '".$_POST["reply"]."' where replyn =".$replyn.";";
 $result = mysqli_query($conn,$query);
 
 }

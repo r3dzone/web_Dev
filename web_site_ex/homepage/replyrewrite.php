@@ -72,7 +72,7 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 					<td colspan="5"><textarea rows = '7' cols = '100' name="reply"><?php echo $reply;?></textarea>
 					</td>
 				</tr>		
-				<input type="hidden" name="kn" value ="<?=$kn?>">
+				<input type="hidden" name="idx" value ="<?=$idx?>">
 				<input type="hidden" name="replyn" value ="<?=$replyn?>">
 				<tr>
 					<td colspan="1"><input type="checkbox" name="secret" value="1">비밀 댓글</td>	
