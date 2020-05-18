@@ -34,13 +34,15 @@ $nick =$_SESSION['nick'];
 		 </style>
 	</head>
 	<body>
-		
-<iframe src="/chat_read.php" width="700" height="300" scrolling="yes" align="center" name="chat_read" ></iframe>
-	
+			
  <form method="POST" action="./chat_upload.php" name="reply">
 	   <div style="border:3px solid skyblue ;width:700px;" >
 	    <table border="1" width="700px" height="100px" align="center" name="table">
-  
+				<tr>
+					<td>
+					<iframe src="/chat_read.php" width="700" height="300" scrolling="yes" align="center" name="chat_read" ></iframe>
+					</td>
+				</tr>
 				<tr>
 					<td colspan="5"><textarea rows = '7' cols = '100' name="mesg"></textarea>
 					</td>
