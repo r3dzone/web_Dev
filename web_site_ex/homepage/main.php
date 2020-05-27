@@ -20,19 +20,22 @@
 				<li><a class="sel" href="">Secret</a></li>
 			</ul>
 		</nav>
+		<button type="button" class="menubtn">
+        	<i class="material-icons">menu</i><span>Menu</span>
+    	</button>
 	</header>
 <body>	
 	<ul id = "menu">
 <?php
  session_start();
 if(isset($_SESSION['id'])){
-echo '<li><a href="http://hypertime.tk/logout.php">로그아웃</a></li>';
-echo '<li><a href="http://hypertime.tk/mypage.php">마이페이지</a></li>';
+echo '<li><a href="/logout.php">로그아웃</a></li>';
+echo '<li><a href="/mypage.php">마이페이지</a></li>';
 }
 else {
-echo '<li><a href="http://hypertime.tk/login.php">로그인</a></li>';
-echo '<li><a href="http://hypertime.tk/signup.php">회원가입</a></li>';
-echo '<li><a href="http://hypertime.tk/findpswd.php">비번찾기</a></li>';
+echo '<li><a href="/login.php">로그인</a></li>';
+echo '<li><a href="/signup.php">회원가입</a></li>';
+echo '<li><a href="/findpswd.php">비번찾기</a></li>';
 }
 ?>
 	</ul>
