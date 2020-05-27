@@ -1,4 +1,10 @@
 <style>
+		header{
+			position:fixed;
+			width:100%;
+			z-index:9999;			
+		}
+
 		a{
 			color:black;
 			text-decoration: none;
@@ -11,15 +17,15 @@
 			display:inline;
 		}
 		ul#menu li a{ 
-	    font-size:18px;
+	    	font-size:18px;
             background-color: black;
             color: white;
 			text-decoration: none;
             }
-	ul#menu li a:hover {
-	background-color: white;
-	color: black;
-		}
+		ul#menu li a:hover {
+			background-color: white;
+			color: black;
+			}
 	
 		div{
 			margin: auto;
@@ -29,14 +35,14 @@
 			text-align: center;
 		}
 		h1{
-		font-family: default;
+			font-family: default;
 		}
 
 		body{
-		background-image:url('/images/back_ground.png');
-		background-repeat:no-repeat;
-		background-position:center center;
-		background-size:cover;
+			background-image:url('/images/back_ground.png');
+			background-repeat:no-repeat;
+			background-position:center center;
+			background-size:cover;
 		}
 		
 	#menubar {
