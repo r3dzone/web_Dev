@@ -1,5 +1,4 @@
 <style>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		header{
 			position:fixed;
 			width:100%;
@@ -50,6 +49,10 @@
 			background-size:cover;
 		}
 		
+		label, #menubtn{
+				display:none;
+			}
+
 		#menubar {
                         height: 40px;
                         width: 100%;
@@ -83,14 +86,17 @@
 			#menubar {
     		    display:none;
     		}
-    		.menubtn {
-				color: white;
-    		    background-color:black;
-    		    cursor:pointer;
-    		}
-    		.menubtn:hover {
-    		    color: black;
-                background-color: white;
-    		}
+			
+			label{
+				display:block;
+			}
+			#menubtn:checked + #menubar{display:block;} 
+			#menubar li{
+						displya:block;
+						width:100%; 
+                        color: white;
+                        background-color: black;
+                        text-align: center;
+                }
 		}
 </style>
