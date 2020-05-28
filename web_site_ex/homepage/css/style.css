@@ -4,7 +4,11 @@
 			width:100%;
 			z-index:9999;			
 		}
-
+		#main_logo{
+			width:30%;
+			height:auto;
+		}
+		
 		p{
 			text-align: center;
 		}

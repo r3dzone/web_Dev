@@ -7,7 +7,7 @@
 		<title>정신과 시간의 방</title>
 	</head>
 	<header>
-		<h1 font-family="ITCBLKAD"><a href="/main.php"><img src="/images/logo.png" alt="정신과시간의방"></a>		
+		<h1 font-family="ITCBLKAD"><a href="/main.php"><img id="main_logo" src="/images/logo.png" alt="정신과시간의방"></a>		
 		<label for="menubtn" onclick><span class="material-icons">menu</span>Menu</label>
 		<input type="checkbox" id="menubtn"/>
 		<nav id="menubar" >
