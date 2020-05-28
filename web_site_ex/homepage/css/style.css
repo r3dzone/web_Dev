@@ -92,7 +92,7 @@
 			}
 			#menubtn:checked + #menubar{display:block;} 
 			#menubar li{
-						displya:block;
+						display:block;
 						width:100%; 
                         color: white;
                         background-color: black;

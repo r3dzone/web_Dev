@@ -7,22 +7,18 @@
 		<title>정신과 시간의 방</title>
 	</head>
 	<header>
-		<h1 font-family="ITCBLKAD"><a href="/main.php"><img src="/images/logo.png" alt="정신과시간의방"></a>
+		<h1 font-family="ITCBLKAD"><a href="/main.php"><img src="/images/logo.png" alt="정신과시간의방"></a>		
+		<label for="menubtn" onclick><span class="material-icons">menu</span>Menu</label>
+		<input type="checkbox" id="menubtn"/>
 		<nav id="menubar" >
 			<ul>
 				<li><a class="sel" href="/freeboard.php">FreeBoard</a></li>
-				<li>|</li>
 				<li><a class="sel" href="/mypage.php">MyPage</a></li>
-				<li>|</li>
 				<li><a class="sel" href="/chat.php">Chat</a></li>
-				<li>|</li>
 				<li><a class="sel" href="">Secret</a></li>
-				<li>|</li>
 				<li><a class="sel" href="">Secret</a></li>
 			</ul>
 		</nav>
-			<label for="menubtn" onclick><span class="material-icons">menu</span></label>
-			<input type="checkbox" id="menubtn"/>
 	</header>
 <body>	
 	<ul id = "menu">
@@ -40,9 +36,6 @@ echo '<li><a href="/findpswd.php">비번찾기</a></li>';
 ?>
 	</ul>
 	</br>
-<p>
-<img src="/images/welcome.png">
-</p>
 </body>
 
 </html>
