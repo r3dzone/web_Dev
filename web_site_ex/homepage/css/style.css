@@ -5,7 +5,7 @@
 			z-index:9999;			
 		}
 		#main_logo{
-			width:30%;
+			width:25%;
 			height:auto;
 		}
 		
@@ -87,6 +87,10 @@
                 }
 	/*mobile*/
 		@media(max-width:480px) {
+			#main_logo{
+				width:45%;
+				height:auto;
+			}
 			#menubar {
     		    display:none;
     		}

@@ -8,13 +8,13 @@ if(empty($pg))$pg =0;
 
 if(empty($id)){
 echo "<script>alert('권한이 없습니다.')</script>";
-	echo '<script>location.href="http:///~unknown/homepage/main.php"</script>';
+	echo '<script>location.href="/main.php"</script>';
 }
 ?>
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>Utack's freeboard</title>
+		<title>정신과 시간의 방</title>
 		<style>
 		a{
 			color:black;

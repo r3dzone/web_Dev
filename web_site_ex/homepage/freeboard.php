@@ -12,127 +12,43 @@ echo "<script>alert('권한이 없습니다.')</script>";
 ?>
 <html>
 	<head>
-	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+		<meta name="theme-corol" content="gray">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<title>정시방[자유게시판]</title>
-		<style>
-		a{
-			color:black;
-			text-decoration: none;
-            }
-		ul#menu{
-			float:right;
-			padding: 0;
-		}
-		ul#menu li{
-			display:inline;
-		}
-		ul#menu li a{ 
-	    font-size:18px;
-            background-color: black;
-            color: white;
-			text-decoration: none;
-            }
-	ul#menu li a:hover {
-	background-color: white;
-	color: black;
-		}
-	
-		div{
-			margin: auto;
-		}		
-		table{
-			border: 0px; solid black;
-			text-align: center;
-		}
-		h1{
-		font-family: default;
-		}
-
-		body{
-		background-image:url('back_ground.png');
-		background-repeat:no-repeat;
-		background-position:50% 50%;
-		}
-		
-	#menubar {
-                        height: 40px;
-                        width: 1200px;
-                }
-
-                #menubar ul li {
-                        list-style: none;
-                        color: white;
-                        background-color: skyblue;
-                        float: left;
-                        line-height: 40px;
-                        vertical-align: middle;
-                        text-align: center;
-                }
-
-                #menubar .sel {
-                        text-decoration:none;
-                        color: white;
-                        display: block;
-                        width: 200px;
-                        font-size: 17px;
-                        font-weight: bold;
-                        font-family: "default";
-                }
-                #menubar .sel:hover {
-                        color: black;
-                        background-color: white;
-                }
-				
-				p{
-					text-align: center;
-				}
-				
-				p#dat{
-					color:blue;
-				}
-				
-				ul {
-　　　				overflow: auto;
-                    text-align: center;
-					list-style-type: none;
-					}
-
-				li {
-					display:inline-block;
-					}
-
-		 </style>
 	</head>
-	<body>
-	  <h1 font-family="ITCBLKAD"><a href="/main.php">HTC BOARD</a>
-<nav id="menubar" >
-		<ul>
-			<li><a class="sel" href="/freeboard.php">FreeBoard</a></li>
-			<li>|</li>
-			<li><a class="sel" href="/mypage.php">MyPage</a></li>
-			<li>|</li>
-			<li><a class="sel" href="">Secret</a></li>
-			<li>|</li>
-			<li><a class="sel" href="">Secret</a></li>
-			<li>|</li>
-			<li><a class="sel" href="">Secret</a></li>
-		</ul>
-	</nav>
-<ul id = "menu">
+	<header>
+		<h1 font-family="ITCBLKAD"><a href="/main.php"><img id="main_logo" src="/images/logo.png" alt="정신과시간의방"></a>		
+		<label for="menubtn" onclick><span class="material-icons">menu</span>Menu</label>
+		<input type="checkbox" id="menubtn"/>
+		<nav id="menubar" >
+			<ul>
+				<li><a class="sel" href="/freeboard.php">FreeBoard</a></li>
+				<li><a class="sel" href="/mypage.php">MyPage</a></li>
+				<li><a class="sel" href="/chat.php">Chat</a></li>
+				<li><a class="sel" href="">Secret</a></li>
+				<li><a class="sel" href="">Secret</a></li>
+			</ul>
+		</nav>
+	</header>
+<body>	
+	<ul id = "menu">
 <?php
-	session_start();
+ session_start();
 if(isset($_SESSION['id'])){
-	echo '<li><a href="/logout.php">로그아웃</a></li>';
-	echo '<li><a href="/write.php">글 쓰기</a></li>';
+echo '<li><a href="/logout.php">로그아웃</a></li>';
+echo '<li><a href="/mypage.php">마이페이지</a></li>';
 }
 else {
-	echo '<li><a href="/login.php">로그인</a></li>';
-	echo ' <li><a href="/signup.php">회원가입</a></li>';
-	echo '<li><a href="/findpswd.php">비번찾기</a></li>';
+echo '<li><a href="/login.php">로그인</a></li>';
+echo '<li><a href="/signup.php">회원가입</a></li>';
+echo '<li><a href="/findpswd.php">비번찾기</a></li>';
 }
 ?>
-</ul>
-</br>
+	</ul>
+	</br>
 
  <form method="POST" action="./search.php" name="main">
 	   <div style="float:right;" >
@@ -145,8 +61,8 @@ else {
   </div>
  </form>
  
- <div style="border:3px solid skyblue ;width:700px;" >
-	    <table border="1" width="700px" align="center" name="table">
+ <div style="border:3px solid black; width:80%;" >
+	    <table border="1" width="80%" align="center" name="table">
 		<tr>
 		<td width="10%">글 번호</td><td width="20%">작성자</td><td width="50%">제목</td><td width="20%">조회수</td>
 		</tr>
@@ -155,8 +71,8 @@ else {
  </div>
  
 
-  <div style="border:3px solid skyblue ;width:700px;" >
-	    <table border="1" width="700px" align="center" name="table">
+  <div style="border:3px solid black; width:80%;" >
+	    <table border="1" width="80%" align="center" name="table">
 
 
 <?php
