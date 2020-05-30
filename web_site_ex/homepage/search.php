@@ -88,7 +88,7 @@ mysqli_query($conn,"set session character_set_connection=utf8;");
 mysqli_query($conn,"set session character_set_results=utf8;");
 mysqli_query($conn,"set session character_set_client=utf8;");
 	
-	$res = mysqli_query($conn,'select idx,nickname,contentname,secret from fboard_content WHERE contentname LIKE "%'.$search.'%" order by kn desc');
+	$res = mysqli_query($conn,'select idx,nickname,contentname,secret from fboard_content WHERE contentname LIKE "%'.$search.'%" order by idx desc');
 	
 	while($row=mysqli_fetch_array($res)){
 			
