@@ -60,7 +60,7 @@ if(empty($id)){
 	    <table border="1" width="100%" align="center" class="table">
 				<tr>
 					<td>
-					<iframe src="/chat_read.php" width="100%" scrolling="yes" align="center" name="chat_read" ></iframe>
+					<iframe src="/chat_read.php" width="100%" height="300%" scrolling="yes" align="center" name="chat_read" ></iframe>
 					</td>
 				</tr>
 				<tr>
