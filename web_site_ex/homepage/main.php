@@ -43,7 +43,8 @@
 		}
 		?>
 	</ul>
-	</br>
+	<br>
+	<br>
 		<div class="text-center">
 			<h2>정신과 시간의 방</h2>
 			<p>여러분의 방문을 환영합니다!</p>
