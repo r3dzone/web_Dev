@@ -2,7 +2,7 @@
 session_start();
 $id =$_SESSION['id'];
 $pg =$_GET['page'];
-$search = $_POST['searchcontent'];
+$search = $_GET['searchcontent'];
 
 if(empty($pg))$pg =0;
 

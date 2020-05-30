@@ -47,10 +47,12 @@
 		}
 
 		body{
+			/*
 			background-image:url('/images/back_ground.png');
 			background-repeat:no-repeat;
 			background-position:center center;
 			background-size:cover;
+			*/
 		}
 		
 		label, #menubtn{

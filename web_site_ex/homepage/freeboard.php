@@ -4,20 +4,23 @@ $id =$_SESSION['id'];
 $pg =$_GET['page'];
 
 if(empty($pg))$pg =0;
-
-if(empty($id)){
-echo "<script>alert('권한이 없습니다.')</script>";
-	echo '<script>location.href="/main.php"</script>';
-}
 ?>
+
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
-		<meta name="theme-corol" content="gray">
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<meta name="theme-color" content="gray">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<title>정시방[자유게시판]</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">	
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+				
+		<title>정신과 시간의 방</title>
 	</head>
 	<header>
 		<h1 font-family="ITCBLKAD"><a href="/main.php"><img id="main_logo" src="/images/logo.png" alt="정신과시간의방"></a>		
@@ -33,24 +36,24 @@ echo "<script>alert('권한이 없습니다.')</script>";
 			</ul>
 		</nav>
 	</header>
-<body>	
+	<body>
+	
 	<ul id = "menu">
-<?php
- session_start();
-if(isset($_SESSION['id'])){
-echo '<li><a href="/logout.php">로그아웃</a></li>';
-echo '<li><a href="/mypage.php">마이페이지</a></li>';
-}
-else {
-echo '<li><a href="/login.php">로그인</a></li>';
-echo '<li><a href="/signup.php">회원가입</a></li>';
-echo '<li><a href="/findpswd.php">비번찾기</a></li>';
-}
-?>
+		<?php
+		session_start();
+		if(isset($_SESSION['id'])){
+			echo '<li><a href="/logout.php">로그아웃</a></li>';
+			echo '<li><a href="/mypage.php">마이페이지</a></li>';
+		}else {
+			echo '<li><a href="/login.php">로그인</a></li>';
+			echo '<li><a href="/signup.php">회원가입</a></li>';
+			echo '<li><a href="/findpswd.php">비번찾기</a></li>';
+		}
+		?>
 	</ul>
 	</br>
 
- <form method="POST" action="./search.php" name="main">
+ <form method="GET" action="./search.php" name="main">
 	   <div style="float:right;" >
 	    <table>
 				<tr>
@@ -61,20 +64,14 @@ echo '<li><a href="/findpswd.php">비번찾기</a></li>';
   </div>
  </form>
  
- <div style="border:3px solid black; width:80%;" >
+ <div style="width:80%;" >
 	    <table border="1" width="100%" align="center" name="table">
-		<tr>
-		<td width="10%">글 번호</td><td width="20%">작성자</td><td width="50%">제목</td><td width="20%">조회수</td>
-		</tr>
-		
-		</table>
- </div>
- 
-
-  <div style="border:3px solid black; width:80%;" >
-	    <table border="1" width="100%" align="center" name="table">
-
-
+		<thead>
+			<tr>
+			<th width="10%">글 번호</th><th width="20%">작성자</th><th width="50%">제목</th><th width="20%">조회수</th>
+			</tr>
+		</thead>
+		<tbody>
 <?php
 $dbHost = 'localhost';
 $dbId = '';
@@ -131,8 +128,8 @@ mysqli_query($conn,"set session character_set_client=utf8;");
 	mysqli_close($conn);
 	
 ?>
-		
-	   </table>
+		</tbody>
+	 </table>
   </div>
 		<p>
 		<ul><h6>
