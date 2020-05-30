@@ -4,7 +4,7 @@ $id =$_SESSION['id'];
 $nick =$_SESSION['nick'];
 
 if(empty($id)){
-	$id = "익명"
+	$id = "익명";
 }
 ?>
 <html>
