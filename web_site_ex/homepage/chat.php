@@ -57,14 +57,14 @@ if(empty($id)){
 			
  <form method="POST" action="./chat_upload.php" name="reply">
 	   <div style="border:3px solid gray; width:90%;" >
-	    <table border="1" width="100%" height="20%" align="center" class="table">
+	    <table border="1" width="100%" align="center" class="table">
 				<tr>
 					<td>
-					<iframe src="/chat_read.php" width="100%" height="60%" scrolling="yes" align="center" name="chat_read" ></iframe>
+					<iframe src="/chat_read.php" width="100%" scrolling="yes" align="center" name="chat_read" ></iframe>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="5"><textarea rows = '7' cols = '100' name="mesg"></textarea>
+					<td colspan="5"><textarea style="width:100%;" name="mesg"></textarea>
 					</td>
 				</tr>		
 				<tr>
