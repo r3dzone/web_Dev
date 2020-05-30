@@ -1,10 +1,17 @@
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
 		<meta name="theme-corol" content="gray">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">	
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+				
 		<title>정신과 시간의 방</title>
 	</head>
 	<header>
@@ -21,22 +28,27 @@
 			</ul>
 		</nav>
 	</header>
-<body>	
+	<body>
+	
 	<ul id = "menu">
-<?php
- session_start();
-if(isset($_SESSION['id'])){
-echo '<li><a href="/logout.php">로그아웃</a></li>';
-echo '<li><a href="/mypage.php">마이페이지</a></li>';
-}
-else {
-echo '<li><a href="/login.php">로그인</a></li>';
-echo '<li><a href="/signup.php">회원가입</a></li>';
-echo '<li><a href="/findpswd.php">비번찾기</a></li>';
-}
-?>
+		<?php
+		session_start();
+		if(isset($_SESSION['id'])){
+			echo '<li><a href="/logout.php">로그아웃</a></li>';
+			echo '<li><a href="/mypage.php">마이페이지</a></li>';
+		}else {
+			echo '<li><a href="/login.php">로그인</a></li>';
+			echo '<li><a href="/signup.php">회원가입</a></li>';
+			echo '<li><a href="/findpswd.php">비번찾기</a></li>';
+		}
+		?>
 	</ul>
 	</br>
-</body>
-
+		<div style="
+			background-image: url(/images/back_ground.png);
+			background-repeat: no-repeat;
+			width: 80%;
+			">
+		</div>
+	</body>
 </html>

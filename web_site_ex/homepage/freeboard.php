@@ -62,7 +62,7 @@ echo '<li><a href="/findpswd.php">비번찾기</a></li>';
  </form>
  
  <div style="border:3px solid black; width:80%;" >
-	    <table border="1" width="80%" align="center" name="table">
+	    <table border="1" width="100%" align="center" name="table">
 		<tr>
 		<td width="10%">글 번호</td><td width="20%">작성자</td><td width="50%">제목</td><td width="20%">조회수</td>
 		</tr>
@@ -72,7 +72,7 @@ echo '<li><a href="/findpswd.php">비번찾기</a></li>';
  
 
   <div style="border:3px solid black; width:80%;" >
-	    <table border="1" width="80%" align="center" name="table">
+	    <table border="1" width="100%" align="center" name="table">
 
 
 <?php
