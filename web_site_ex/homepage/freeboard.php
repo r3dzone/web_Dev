@@ -65,7 +65,7 @@ if(empty($pg))$pg =0;
  </form>
  
  <div style="width:80%;" >
-	    <table border="1" width="100%" align="center" name="table">
+	    <table border="1" width="100%" align="center" name="table" class="table table-striped">
 		<thead>
 			<tr>
 			<th width="10%">글 번호</th><th width="20%">작성자</th><th width="50%">제목</th><th width="20%">조회수</th>
