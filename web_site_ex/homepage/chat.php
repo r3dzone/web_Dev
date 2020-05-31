@@ -6,6 +6,7 @@ $nick =$_SESSION['nick'];
 if(empty($id)){
 	$id = "익명";
 }
+echo "<script>alert('\"".$id."\"로 접속합니다.')</script>";
 ?>
 <html>
 	<head>
