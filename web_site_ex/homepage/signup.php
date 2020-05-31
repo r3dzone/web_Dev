@@ -69,10 +69,10 @@ if($cnt!=0&&$err == 0){
 		$res2 = $row['total'];
 	
 if(!$res1&&!$res2){
-$query = "insert into user_info(id,password,birthdate,nickname) values('".$id."','".md5($pswd)."','".$birth."','".$nick."')";
+$query = "insert into user_info(id,password,birthdate,nickname) values('".$id."','".hash("sha56",$pswd)."','".$birth."','".$nick."')";
 $result = mysqli_query($conn,$query);
 	echo "<script>alert('회원가입 성공!!')</script>";
-	echo '<script>location.href="http://hypertime.tk/main.php"</script>';
+	echo '<script>location.href="/main.php"</script>';
 	}else{
 		if($res1)echo "<script>alert('이미 존재하는 id 입니다!!')</script>";
 		if($res2)echo "<script>alert('이미 존재하는 닉네임 입니다!!')</script>";
@@ -115,7 +115,7 @@ $cnt++;
 	   <h1 align="center" font-family="ITCBLKAD"> sign-in
 	 <form method="POST" action="" name="form">
 	<div style="width:550px;" >
-	<table border="1" width="550px" height="100px" align="center" class="table">
+	<table border="1" width="100%" height="100px" align="center" class="table">
 	   <tr>
 	   <td>아이디</td>
 	   <td><input type="text" name="id" value="<?=$id?>"/></td>
@@ -128,7 +128,7 @@ $cnt++;
 	</div>
 	</br>
 	<div style="width:550px;" >
-	 <table border="1" width="550px" height="100px" align="center" name="table">
+	 <table border="1" width="100%" height="100px" align="center" name="table">
 	   <tr>
 	   <td colspan="2">닉네임</td>
 	   <td colspan="2"><input type="text" name="nickname" value="<?=$nick?>"/></td>
@@ -192,7 +192,7 @@ $cnt++;
 	   <br/>
 	   <input type="hidden" name="cnt" value ="<?=$cnt?>">
 	   <div style="width:550px;" >
-	 <table border="1" width="550px" height="20px" align="center" class="table">
+	 <table border="1" width="100%" height="20px" align="center" class="table">
 	   <tr>
 	   <td colspan="4" align ="center"><input type="submit" name="가입하기" value="V 가입하기"/</td>
 	   </tr>
