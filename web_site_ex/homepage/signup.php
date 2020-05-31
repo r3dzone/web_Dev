@@ -128,7 +128,7 @@ $cnt++;
 	</div>
 	</br>
 	<div style="width:550px;" >
-	 <table border="1" width="100%" height="100px" align="center" name="table">
+	 <table border="1" width="100%" height="100px" align="center" class="table">
 	   <tr>
 	   <td colspan="2">닉네임</td>
 	   <td colspan="2"><input type="text" name="nickname" value="<?=$nick?>"/></td>
