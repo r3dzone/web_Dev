@@ -1,5 +1,5 @@
 <?php
 session_start();
-unset($_SESSION['id']);
-echo '<script>location.href="http://hypertime.tk/main.php"</script>';
+$_SESSION = array();
+echo '<script>location.href="/main.php"</script>';
 ?>

@@ -5,11 +5,6 @@ $id = $_POST['id'];
 $cnt = $_POST['cnt'];
 $correctpswd;
 
-if(!empty($id)){
-echo "<script>alert('이미 로그인 되어있습니다.')</script>";
-	echo '<script>location.href="/main.php"</script>';
-}
-
 $dbHost = 'localhost';
 $dbId = '';
 $dbPw = '';
@@ -39,7 +34,7 @@ if($cnt!=0 && empty($correctpswd)){
 	$_SESSION['nick'] = $nick;
 	echo '<script>location.href="/main.php"</script>';
 }else if($cnt != 0){
-	echo "wrong Password</br>";
+	echo "<script>alert('wrong Password');</script>";
 }
 $cnt ++;
 ?>
