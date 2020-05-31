@@ -69,7 +69,7 @@ if($cnt!=0&&$err == 0){
 		$res2 = $row['total'];
 	
 if(!$res1&&!$res2){
-$query = "insert into user_info(id,password,birthdate,nickname) values('".$id."','".$pswd."','".$birth."','".$nick."')";
+$query = "insert into user_info(id,password,birthdate,nickname) values('".$id."','".md5($pswd)."','".$birth."','".$nick."')";
 $result = mysqli_query($conn,$query);
 	echo "<script>alert('회원가입 성공!!')</script>";
 	echo '<script>location.href="http://hypertime.tk/main.php"</script>';
@@ -81,40 +81,41 @@ $result = mysqli_query($conn,$query);
 }
 $cnt++;
 ?>
-
-
-
 <html>
 	<head>
-	<meta charset="UTF-8">
-		<title> 회원가입</title>
+		<meta charset="UTF-8">
+		<meta name="theme-color" content="gray">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
-		<style>
-		div{
-			margin: auto;
-		}	
-		table{
-			border: 0px solid black;
-			text-align: center;
-		    color: hotpink;
-		}
-		h1{
-		font-family: Cursive;
-		color:skyblue;
-		}
-		body{
-		background-image:url('c.png');
-		background-repeat:no-repeat;
-		background-position:50% 50%;
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">	
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		
-		}
-		 </style>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+				
+		<title>[회원가입]정신과 시간의 방</title>
 	</head>
-	<body>
+		<header>
+		<h1 font-family="ITCBLKAD"><a href="/main.php"><img id="main_logo" src="/images/logo.png" alt="정신과시간의방"></a>		
+		<label for="menubtn" onclick><span class="material-icons">menu</span>Menu</label>
+		<input type="checkbox" id="menubtn"/>
+		<nav id="menubar" >
+			<ul>
+				<li><a class="sel" href="/freeboard.php">FreeBoard</a></li>
+				<li><a class="sel" href="/mypage.php">MyPage</a></li>
+				<li><a class="sel" href="/chat.php">Chat</a></li>
+				<li><a class="sel" href="">Secret</a></li>
+				<li><a class="sel" href="">Secret</a></li>
+			</ul>
+		</nav>
+	</header>
+	<body>	
 	   <h1 align="center" font-family="ITCBLKAD"> sign-in
 	 <form method="POST" action="" name="form">
-	<div style="border:3px solid skyblue ;width:550px;" >
-	<table border="1" width="550px" height="100px" align="center" name="table">
+	<div style="width:550px;" >
+	<table border="1" width="550px" height="100px" align="center" class="table">
 	   <tr>
 	   <td>아이디</td>
 	   <td><input type="text" name="id" value="<?=$id?>"/></td>
@@ -126,7 +127,7 @@ $cnt++;
     </table>
 	</div>
 	</br>
-	<div style="border:3px solid skyblue ;width:550px;" >
+	<div style="width:550px;" >
 	 <table border="1" width="550px" height="100px" align="center" name="table">
 	   <tr>
 	   <td colspan="2">닉네임</td>
@@ -190,8 +191,8 @@ $cnt++;
 	   </div>
 	   <br/>
 	   <input type="hidden" name="cnt" value ="<?=$cnt?>">
-	   <div style="border:3px solid skyblue ;width:550px;" >
-	 <table border="1" width="550px" height="20px" align="center" name="table">
+	   <div style="width:550px;" >
+	 <table border="1" width="550px" height="20px" align="center" class="table">
 	   <tr>
 	   <td colspan="4" align ="center"><input type="submit" name="가입하기" value="V 가입하기"/</td>
 	   </tr>
